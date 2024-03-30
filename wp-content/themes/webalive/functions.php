@@ -298,9 +298,6 @@ function webalive_theme_options() {
 
 // custom function added
 
-
-
-
 function custom_user_list_posts_html_shortcode($atts) {
     $atts = shortcode_atts(
         array(
@@ -329,31 +326,63 @@ function custom_user_list_posts_html_shortcode($atts) {
             $user_list_posts->the_post();
             ?>
             <div class="focus-part">
-                <?php echo get_post_meta(get_the_ID(), 'user_id', true); ?>
-                <div>
-                    <?php the_post_thumbnail(); ?>
-                    <h2><?php the_title(); ?></h2>
-                    <div class="<?php echo esc_attr(implode(' ', get_post_class())); ?>">
-                        <?php echo get_the_category_list(', '); ?>
-                    </div>
+			    <div class="user-id"><?php echo get_post_meta(get_the_ID(), 'user_id', true); ?></div>
+                <div class="name-dig">
+
+				    <div class="img"><?php the_post_thumbnail(); ?></div>
+
+					<div class="title-cat">
+						<div class="title"><?php the_title(); ?></div>
+						<div class="cat-dig <?php echo esc_attr(implode(' ', get_post_class())); ?>">
+							<?php 
+							$postcat = get_the_category(get_the_ID());
+							$postcat_name = $postcat[0]->name;
+							// var_dump(esc_html( $postcat[0]->name )); 
+							//echo get_the_category_list(', '); ?>
+							<?php //echo "বাংলাদেশ"; ?>
+
+
+							<?php
+							if ($postcat_name == "Customer Service") {
+								echo "কাস্টমার সার্ভিস";
+							} elseif ($postcat_name == "Sub Admin") {
+								echo "সাব-এডমিন";
+							} elseif ($postcat_name == "Admin") {
+								echo "এডমিন";
+							} elseif ($postcat_name == "Super Agent") {
+								echo "সুপার এজেন্ট";
+							} elseif ($postcat_name == "Master Agent") {
+								echo "মাস্টার এজেন্ট";
+							}else {
+								echo "";
+							}
+							?>
+
+
+						</div>
+					</div>
+
                 </div>
             </div>
 
-            <!-- <div class="social-connection-group" style="display: none;"> -->
-            <div class="social-connection-group" style="">
+            <!-- <div class="social-connection-group" style=""> -->
+            <div class="social-connection-group" style="display: none;">
                 <div class="group-1">
                     <span class="value-1">WhatsApp 1</span>
                     <span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></span>
+                    <button class="copy-btn">Copy Number</button>
                 </div>
 
                 <div class="group-2">
                     <span class="value-1">WhatsApp 2</span>
                     <span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></span>
+                    <button class="copy-btn">Copy Number</button>
                 </div>
 
                 <div class="group-3">
                     <span class="value-1">Messenger</span>
                     <span class="value-2"><?php echo get_post_meta(get_the_ID(), 'messenger', true); ?></span>
+                    <button class="copy-btn">Copy Link</button>
                 </div>
             </div>
             <?php
