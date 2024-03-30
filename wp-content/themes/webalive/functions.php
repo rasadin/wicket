@@ -284,3 +284,88 @@ function webalive_theme_options() {
 		'webalive_header_type' => 'default', // Options: default, large, minimal, none
 	);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// custom function added
+
+
+
+
+function custom_user_list_posts_html_shortcode($atts) {
+    $atts = shortcode_atts(
+        array(
+            'category' => '', // Default value for category
+        ),
+        $atts,
+        'custom_user_list' // Shortcode name
+    );
+
+    $args = array(
+        'post_type' => 'user-list',
+        'posts_per_page' => -1, // Retrieve all posts
+    );
+
+    // If a category is specified, add it to the query
+    if (!empty($atts['category'])) {
+        $args['category_name'] = $atts['category'];
+    }
+
+    $user_list_posts = new WP_Query($args);
+
+    ob_start(); // Start output buffering
+
+    if ($user_list_posts->have_posts()) {
+        while ($user_list_posts->have_posts()) {
+            $user_list_posts->the_post();
+            ?>
+            <div class="focus-part">
+                <?php echo get_post_meta(get_the_ID(), 'user_id', true); ?>
+                <div>
+                    <?php the_post_thumbnail(); ?>
+                    <h2><?php the_title(); ?></h2>
+                    <div class="<?php echo esc_attr(implode(' ', get_post_class())); ?>">
+                        <?php echo get_the_category_list(', '); ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="social-connection-group" style="display: none;"> -->
+            <div class="social-connection-group" style="">
+                <div class="group-1">
+                    <span class="value-1">WhatsApp 1</span>
+                    <span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></span>
+                </div>
+
+                <div class="group-2">
+                    <span class="value-1">WhatsApp 2</span>
+                    <span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></span>
+                </div>
+
+                <div class="group-3">
+                    <span class="value-1">Messenger</span>
+                    <span class="value-2"><?php echo get_post_meta(get_the_ID(), 'messenger', true); ?></span>
+                </div>
+            </div>
+            <?php
+        }
+        wp_reset_postdata();
+    } else {
+        // No posts found
+    }
+
+    $output = ob_get_clean(); // Get the output and clean the buffer
+    return $output; // Return the generated HTML
+}
+add_shortcode('custom_user_list', 'custom_user_list_posts_html_shortcode');
+
+// [custom_user_list category="Category Name"]
