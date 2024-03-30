@@ -23,16 +23,16 @@
 		<!-- Widgets -->
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-3 col-sm-6 footer-colume-1">
 					<?php dynamic_sidebar( 'footer-widget-1' ); ?>
 				</div>
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-2 col-sm-6 footer-colume-2">
 					<?php dynamic_sidebar( 'footer-widget-2' ); ?>
 				</div>
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-3 col-sm-6 footer-colume-3">
 					<?php dynamic_sidebar( 'footer-widget-3' ); ?>
 				</div>
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-4 col-sm-6 footer-colume-4">
 					<?php dynamic_sidebar( 'footer-widget-4' ); ?>
 				</div>
 			</div>
@@ -40,13 +40,21 @@
 		<!-- Copyright -->
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-12 footer-copyright-widgets1">
 					<?php dynamic_sidebar( 'copyright-widget-1' ); ?>
 				</div>
-				<div class="col-md-6">
+				
+			</div>
+		</div>
+		<div class="foo-bottom-border">
+		<div class="container">
+		<div class="bottom-to-top"><a id="up"></a></div>
+			<div class="row">
+				<div class="col-md-12 footer-copyright-widgets2">
 					<?php dynamic_sidebar( 'copyright-widget-2' ); ?>
 				</div>
 			</div>
+		</div>
 		</div>
 	</footer>
 
