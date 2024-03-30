@@ -44,6 +44,7 @@
 .webalive-main-menu li a {
     display: block;
     padding: 20px 15px;
+	color:#000;
 }
 .webalive-main-menu li > .sub-menu {
     display: none;
