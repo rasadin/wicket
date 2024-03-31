@@ -624,6 +624,7 @@ justify-content: space-between;
 }
 .complain-box .focus-part-complain .hentry {
     margin: 0;
+	font-size: 14px;
 }
 .social-connection-group.complain-ss{
 	padding:20px 30px 20px 30px;
@@ -693,6 +694,7 @@ justify-content: space-between;
 	display: inline-block;
     vertical-align: middle;
 	margin-right:5px;
+	margin-top: 5px;
 }
 .social-connection-group .group-3 span.value-1:before{
 	content:'';
