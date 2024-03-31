@@ -75,7 +75,7 @@
 .webalive-main-menu li > .sub-menu li ul.sub-menu {
     display: block;
     position: absolute;
-    width: 225px;
+    width: 250px;
     left: 100%;
     top: 0%;
     z-index: 1;
@@ -507,6 +507,9 @@ and (max-width: 1080px) {
 	color:#000000;
 	text-decoration:none !important;
 }
+.right-button a:hover{
+	border-bottom: 1px solid #FEBE1E;
+}
 .right-button a:after{
 	content:'';
 	width:14px;
@@ -554,3 +557,152 @@ and (max-width: 1080px) {
 }
 
 /*contact from start*/
+
+.agends-menubar ul{
+    margin:0;
+    padding:0;
+    border-left:1px solid rgba(0, 0, 0, 0.2);
+    padding-left:40px;
+}
+.agends-menubar ul li{
+   list-style-type:none; 
+   color:rgba(0, 0, 0, 0.2);
+}
+.agends-menubar ul li a{
+  color:rgba(0, 0, 0, 0.2);
+  font-size:20px;
+  font-weight:300;
+  position:relative;
+  text-decoration:none !important;
+}
+.agends-menubar ul li a:hover{
+    font-weight:600;
+    color:#000;
+}
+.agends-menubar ul li a:hover:before{
+    content:'';
+    width:3px;
+    height:25px;
+    background-color:#FEBE1E;
+    position:absolute;
+    left: -42px;
+}
+.focus-part-complain .title{
+	font-weight:bold;
+}
+.complain-box{
+	border:1px solid #E6E6E6;
+	border-radius:10px;
+	margin-bottom: 20px;
+}
+.complain-box .focus-part-complain {
+    background-color:rgba(0, 0, 0, 0.03);
+	-webkit-border-top-left-radius: 10px;
+-webkit-border-top-right-radius: 10px;
+-moz-border-radius-topleft: 10px;
+-moz-border-radius-topright: 10px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom:1px solid #E6E6E6;
+display: flex;
+justify-content: space-between;
+ align-items: center;
+ padding:26px 30px 26px 30px;
+}
+.complain-box .focus-part-complain .name-dig{
+  display: flex;
+  gap:10px;
+}
+.complain-box .focus-part-complain img{
+	width:53px;
+	height:53px;
+	border-radius:50%;
+}
+.complain-box .focus-part-complain p{
+	margin:0px;
+	padding:0px;
+}
+.complain-box .focus-part-complain .hentry {
+    margin: 0;
+}
+.social-connection-group.complain-ss{
+	padding:20px 30px 20px 30px;
+}
+.social-connection-group.complain-ss .group-1,
+.social-connection-group.complain-ss .group-2,
+.social-connection-group.complain-ss .group-3{
+	display:flex;
+	margin:10px 0px;
+}
+.social-connection-group span{
+	display:block;
+	width:25% !important;
+	font-size:14px;
+}
+.social-connection-group span.value-1 {
+    display: flex;
+    gap: 9px;
+}
+.social-connection-group span.value-1 {
+	position:relative;
+	font-weight: 600;
+	min-width: 218px;
+}
+.social-connection-group span.value-1 span {
+	color:rgba(0, 0, 0, 0.4);
+	font-size:14px;
+}
+.social-connection-group span.value-1:before {
+	content:'';
+	background: url(../../assets/img/whatsap.png) no-repeat;
+	width:23px;
+	height:23px;
+	display: inline-block;
+    vertical-align: middle;
+}
+.social-connection-group span.value-2{
+	font-weight:600;
+	font-size:17px;
+	min-width: 248px;
+}
+.social-connection-group span.value-4,
+.social-connection-group .copy-btn{
+	position:relative;
+}
+.social-connection-group .copy-btn{
+	padding-left:35px;
+	min-width: 200px;
+}
+.social-connection-group .copy-btn:before {
+	content:'';
+	background: url(../../assets/img/copy-icon.png) no-repeat;
+	width:13px;
+	height:13px;
+	display: inline-block;
+    vertical-align: middle;
+	margin-right:12px;
+}
+.social-connection-group span.value-4 a{
+	color:#000;
+}
+.social-connection-group span.value-4:before{
+	content:'';
+	background: url(../../assets/img/messenger-icon.png) no-repeat;
+	width:22px;
+	height:20px;
+	display: inline-block;
+    vertical-align: middle;
+	margin-right:5px;
+}
+.social-connection-group .group-3 span.value-1:before{
+	content:'';
+	background: url(../../assets/img/messenger-icon-2.png) no-repeat;
+	width:23px;
+	height:23px;
+	display: inline-block;
+    vertical-align: middle;
+	margin-right:2px;
+}
+.complain-box .id-value{
+	font-weight:bold;
+}
