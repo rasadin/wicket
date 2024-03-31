@@ -32,7 +32,9 @@
 							) );
 						endif;
 					?>
+					<div class="right-button"><a href="#">জরুরি যোগাযোগ</a></div>
 				</div>
+				
 		    </div>
 		</nav>
 	</header><!-- #masthead -->

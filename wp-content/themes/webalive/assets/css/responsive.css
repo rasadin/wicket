@@ -1,6 +1,8 @@
 /*Laptop*/
 @media only screen and (max-width:1440px) {
-
+.divided-shape-customer-service .elementor-widget-container{
+	margin-right:-117px !important;
+}
 }
 /*Laptop*/
 @media only screen and (max-width:1366px) {
@@ -8,7 +10,9 @@
 }
 /*Laptop*/
 @media only screen and (max-width:1280px) {
-
+.divided-shape-customer-service .elementor-widget-container{
+	margin-right:0px !important;
+}
 }
 /*Tab Landscape*/
 @media only screen and (max-width:1024px) {
@@ -24,7 +28,21 @@
 }
 /*Mobile View Start*/
 @media only screen and (max-width:767px) {
-
+.divided-shape-customer-service .elementor-widget-container{
+	margin-right:0px !important;
+}
+.footer-colume-4 .new-account-widgets {
+    margin-top: 0;
+}
+.footer-colume-3 {
+    padding-left: 15px;
+}
+.footer-copyright-widgets1 .textwidget {
+    margin-top: 38px;
+}
+.webalive-navbar-brand {
+    max-width: 126px;
+}
 }
 /*Mobile View Small*/
 @media only screen and (max-width:360px) {

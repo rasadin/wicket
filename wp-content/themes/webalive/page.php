@@ -14,6 +14,23 @@
 
 get_header();
 ?>
+  <div class="entry-header inner-common-header">
+        <div class="container">
+            <?php
+            /**
+             * webalive_before_entry_title hook
+             */
+            do_action( 'webalive_before_entry_title' );
+
+            the_title( '<h1 class="entry-title">', '</h1>' );
+
+            /**
+             * webalive_after_entry_title hook
+             */
+            do_action( 'webalive_after_entry_title' );
+            ?>
+        </div>
+    </div><!-- .entry-header -->
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">

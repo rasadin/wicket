@@ -10,22 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php  
-		/**
-		 * webalive_before_entry_title hook
-		 */
-		do_action( 'webalive_before_entry_title' );
-
-		the_title( '<h1 class="entry-title">', '</h1>' ); 
-		
-		/**
-		 * webalive_after_entry_title hook
-		 */
-		do_action( 'webalive_after_entry_title' );
-		?>
-	</header><!-- .entry-header -->
-
+	
 	<?php webalive_post_thumbnail(); ?>
 
 	<div class="entry-content">
