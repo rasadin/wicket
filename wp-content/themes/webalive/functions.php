@@ -388,7 +388,7 @@ function custom_user_list_posts_html_shortcode($atts) {
 					<div class="group-3">
 						<span class="value-1">Messenger</span>
 						<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'messenger', true); ?></span>
-						<span class="copy-btn">Copy Number</span>
+						<span class="copy-btn">Copy</span>
 						<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'messenger', true); ?>" target="_blank">Message</a></span>
 					</div>
 				</div>
@@ -510,7 +510,7 @@ function custom_user_list_posts_html_shortcode_complain($atts) {
 							<div class="group-3">
 								<span class="value-1">Messenger</span>
 								<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'messenger', true); ?></span>
-								<span class="copy-btn">Copy Number</span>
+								<span class="copy-btn">Copy</span>
 								<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'messenger', true); ?>" target="_blank">Message</a></span>
 							</div>
 						</div>
