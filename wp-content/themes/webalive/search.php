@@ -10,8 +10,8 @@
 get_header();
 ?>
 <div class="container">
-	<div class="row">
-		<div class="col-md-9">
+	<div class="ssss">
+		<div class="col-md-12">
 			<section id="primary" class="webalive-content-area">
 				<main id="main" class="webalive-site-main">
 
@@ -62,23 +62,6 @@ get_header();
 
 				</main><!-- #main -->
 			</section><!-- #primary -->
-		</div>
-		<div class="col-md-3">
-				
-			<?php 
-				/**
-				 * webalive_before_sidebar hook
-				 */
-				do_action( 'webalive_before_sidebar' );
-
-				get_sidebar();
-				
-				/**
-				 * webalive_after_sidebar hook
-				 */
-				do_action( 'webalive_after_sidebar' );
-			?>
-			
 		</div>
 	</div>
 </div>

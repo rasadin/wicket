@@ -9,27 +9,89 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			webalive_posted_on();
-			webalive_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
 
-	<?php webalive_post_thumbnail(); ?>
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
-		<?php webalive_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+
+<div class="search-card complain-box">
+	<div class="focus-part-complain">
+
+		<div class="name-dig">
+
+			<div class="img"><?php the_post_thumbnail(); ?></div>
+
+			<div class="title-cat">
+				<div class="title"><?php the_title(); ?></div>
+				<div class="cat-dig <?php echo esc_attr(implode(' ', get_post_class())); ?>">
+					<?php 
+					$postcat = get_the_category(get_the_ID());
+
+                    //var_dump($postcat);
+
+					$postcat_name = $postcat[0]->name;
+					// var_dump(esc_html( $postcat[0]->name )); 
+					//echo get_the_category_list(', '); ?>
+					<?php //echo "বাংলাদেশ"; ?>
+
+
+					<?php
+					if ($postcat_name == "Customer Service") {
+						echo "কাস্টমার সার্ভিস";
+					} elseif ($postcat_name == "Sub Admin") {
+						echo "সাব-এডমিন";
+					} elseif ($postcat_name == "Admin") {
+						echo "এডমিন";
+					} elseif ($postcat_name == "Super Agent") {
+						echo "সুপার এজেন্ট";
+					} elseif ($postcat_name == "Master Agent") {
+						echo "মাস্টার এজেন্ট";
+					}else {
+						echo "";
+					}
+					?>
+
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="user-id">
+			<p class="id-ti">এজেন্ট আইডি</p>
+			<div class="id-value"><?php echo get_post_meta(get_the_ID(), 'user_id', true); ?></div>
+		</div>
+
+
+	</div>
+	<div class="social-connection-group complain-ss">
+		<div class="group-1">
+			<span class="value-1">WhatsApp <span>(Primary)</span></span>
+			<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></span>
+			<span class="copy-btn">Copy Number</span>
+			<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank">Message</a></span>
+		</div>
+
+		<div class="group-2">
+			<span class="value-1">WhatsApp <span>(Secondary)</span></span>
+			<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></span>
+			<span class="copy-btn">Copy Number</span>
+			<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?>" target="_blank">Message</a></span>
+		</div>
+
+		<div class="group-3">
+			<span class="value-1">Messenger</span>
+			<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'messenger', true); ?></span>
+			<span class="copy-btn">Copy Number</span>
+			<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'messenger', true); ?>" target="_blank">Message</a></span>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
