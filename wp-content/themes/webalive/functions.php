@@ -297,7 +297,6 @@ function webalive_theme_options() {
 
 
 // custom function added
-
 function custom_user_list_posts_html_shortcode($atts) {
     $atts = shortcode_atts(
         array(
@@ -405,7 +404,6 @@ function custom_user_list_posts_html_shortcode($atts) {
     return $output; // Return the generated HTML
 }
 add_shortcode('custom_user_list', 'custom_user_list_posts_html_shortcode');
-
 // [custom_user_list category="Category Name"]
 
 

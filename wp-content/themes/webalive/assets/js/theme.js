@@ -39,6 +39,7 @@
         // Toggle social-connection-group
         $('.focus-part').click(function() {
             $(this).next('.social-connection-group').slideToggle();
+            $(this).toggleClass("active");
         });
     });
     
