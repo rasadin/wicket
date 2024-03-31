@@ -633,7 +633,7 @@ justify-content: space-between;
 .social-connection-group.complain-ss .group-2,
 .social-connection-group.complain-ss .group-3{
 	display:flex;
-	margin:10px 0px;
+	margin:20px 0px;
 }
 .social-connection-group span{
 	display:block;
