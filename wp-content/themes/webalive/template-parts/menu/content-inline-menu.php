@@ -33,6 +33,7 @@
 						endif;
 					?>
 					<div class="right-button"><a href="<?php echo esc_url( home_url( '/জরুরি-যোগাযোগ/' ) ); ?>">জরুরি যোগাযোগ</a></div>
+					 <div class="search-box"><?php echo do_shortcode( '[ivory-search id="450" title="Default Search Form"]'); ?></div>
 				</div>
 				
 		    </div>
