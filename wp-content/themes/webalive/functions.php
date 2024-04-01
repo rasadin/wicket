@@ -306,18 +306,22 @@ function custom_user_list_posts_html_shortcode($atts) {
         'custom_user_list' // Shortcode name
     );
 
+
+	// Get categories from shortcode attribute and convert them into an array
+	$categories = !empty($atts['category']) ? array_map('trim', explode(',', $atts['category'])) : array();
+
     $args = array(
         'post_type' => 'user-list',
         'posts_per_page' => -1, // Retrieve all posts
     );
 
-    // If a category is specified, add it to the query
-    if (!empty($atts['category'])) {
-        $args['category_name'] = $atts['category'];
+    // If categories are specified, add them to the query
+    if (!empty($categories)) {
+        $args['category_name'] = implode(',', $categories);
     }
 
     $user_list_posts = new WP_Query($args);
-
+	
     ob_start(); // Start output buffering
 
     if ($user_list_posts->have_posts()) {
@@ -405,6 +409,8 @@ function custom_user_list_posts_html_shortcode($atts) {
 }
 add_shortcode('custom_user_list', 'custom_user_list_posts_html_shortcode');
 // [custom_user_list category="Category Name"]
+// [custom_user_list category="Category Name 1, Category Name 2, Category Name 3"]
+
 
 
 

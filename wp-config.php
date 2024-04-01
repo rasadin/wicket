@@ -22,6 +22,7 @@
 /** The name of the database for WordPress */
 // define( 'DB_NAME', 'rasadin' );
 define( 'DB_NAME', 'rasadin_1111' );
+// define( 'DB_NAME', 'rasadin_2222' );
 
 /** Database username */
 define( 'DB_USER', 'root' );
