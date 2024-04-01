@@ -9,6 +9,11 @@
 
 get_header();
 ?>
+ <div class="entry-header inner-common-header">
+   <div class="container">
+   <h1>404</h1>
+   </div>
+</div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
@@ -20,17 +25,23 @@ get_header();
 						 */
 						do_action( 'webalive_before_main_content' );
 					?>
-					<section class="error-404 not-found">
-						<header class="page-header">
-							<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'webalive' ); ?></h1>
-						</header><!-- .page-header -->
+					 <section class="error-404 not-found">
+                        <header class="page-header">
+                            <h2 class="page-title">Oops! That page can’t be found.</h2>
+                        </header><!-- .page-header -->
 
-						<div class="page-content">
-							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'webalive' ); ?></p>
+                        <div class="page-content">
+                            <p>It looks like nothing was found at this location. Maybe try one of the links below?</p>
 
-							<?php get_search_form(); ?>
-						</div><!-- .page-content -->
-					</section><!-- .error-404 -->
+                            <!--<form role="search" method="get" class="search-form" action="https://www.leoberkeley.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form>-->
+                        </div><!-- .page-content -->
+                    </section>
 
 					<?php  
 						/**
