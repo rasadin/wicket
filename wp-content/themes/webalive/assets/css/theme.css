@@ -904,4 +904,12 @@ section.no-results.not-found {
     text-align: center;
     margin-top: 100px;
 }
+.search-results .webalive-site-content{
+	margin-bottom:150px;
+}
+.search-results h1.page-title {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 27px;
+}
 
