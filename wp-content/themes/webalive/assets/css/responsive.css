@@ -48,6 +48,11 @@
     margin-bottom: 20px;
     width: 814px;
 }
+.webalive-footer {
+    min-height: 400px;
+    background-color: #0C0C0C;
+    padding: 69px 0px 0px 0px;
+}
 }
 /*Tab Portrait*/
 @media only screen and (max-width:768px) {
@@ -100,6 +105,23 @@
 
 .list-people-box .list-box {
     width: 780px;
+}
+.webalive-site-content {
+    min-height: 222px;
+}
+section.no-results.not-found {
+    text-align: center;
+    margin-top: 59px;
+}
+.webalive-footer ul li {
+    margin-bottom: 10px;
+}
+.webalive-main-menu li a {
+    font-size: 16px;
+}
+.footer-copyright-widgets1 a {
+    font-size: 16px;
+    padding: 11px 32px;
 }
 }
 /*Mobile View Small*/
