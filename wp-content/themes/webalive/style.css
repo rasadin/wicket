@@ -81,7 +81,7 @@ html {
 }
 
 ::selection {
-	background: #22b0af;
+	background: #000;
 	color: #fff;
 	text-shadow: none;
 	text-shadow: 0.3px 0.3px #22b0af;
@@ -514,7 +514,7 @@ address {
 
 pre {
 	background: #eee;
-	font-family: "Noto Sans Bengali", sans-serif!important;
+	font-family: "Noto Sans Bengali", sans-serif !important;
 	font-size: 15px;
 	font-size: 0.9375rem;
 	line-height: 1.6;

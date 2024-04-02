@@ -33,7 +33,7 @@
 					<?php dynamic_sidebar( 'footer-widget-3' ); ?>
 				</div>
 				<div class="col-md-4 col-sm-6 footer-colume-4">
-					<?php dynamic_sidebar( 'footer-widget-4' ); ?>
+					<div class="new-account-widgets"><?php dynamic_sidebar( 'footer-widget-4' ); ?></div>
 				</div>
 			</div>
 		</div>

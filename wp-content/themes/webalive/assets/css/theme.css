@@ -49,6 +49,9 @@
     font-size:19px;
     font-weight:600;
 }
+.webalive-main-menu li a:hover {
+ color:#FEBE1E;
+}
 .webalive-main-menu li > .sub-menu {
     display: none;
     position: absolute;
@@ -161,7 +164,17 @@
 /* Portrait and Landscape */
 @media only screen
 and (max-width: 1080px) {
-    .webalive-navbar {
+.search-box {
+    position: absolute;
+    right: 69px;
+}
+.webalive-main-menu .jugajug-btn{
+    display:block !important;
+}
+.right-button a{
+    display:none;
+}
+.webalive-navbar {
         background-color:transparent;
     }
     .webalive-navbar .container {
@@ -184,7 +197,7 @@ and (max-width: 1080px) {
         align-items: center;
         justify-content: space-between;
         height: 60px;
-        border-bottom: 1px solid rgba(255,255,255, 0.7);
+        border-bottom:0px solid rgba(255,255,255, 0.7);
     }
     .webalive-navbar-toggler {
         display: block;
@@ -248,10 +261,11 @@ and (max-width: 1080px) {
         position: relative;
         top: 0;
         background-color: #fff;
-        padding: 0px 0px 0px 10px;
+        padding: 0px 0px 0px 0px;
     }
     .webalive-main-menu > li ul.sub-menu > li {
         border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding: 0 0;
     }
     .webalive-main-menu > li ul.sub-menu li:first-child {
         border-top: 1px solid rgba(0,0,0,0.05);
@@ -274,7 +288,7 @@ and (max-width: 1080px) {
         padding-right: 0;
     }
     .webalive-main-menu li > .sub-menu li a {
-        padding: 16px 40px;
+        padding: 16px 22px;
     }
 
     .webalive-navbar-toggler::after {
@@ -386,7 +400,11 @@ and (max-width: 1080px) {
 	margin-bottom:15px;
 }
 .webalive-footer ul li a{
+   text-decoration:none !important;
 	font-size:20px;
+}
+.webalive-footer ul li a:hover{
+    color:#FEBE1E;
 }
 .footer-colume-4 .new-account-widgets{
 	background-image: url(../img/new-account-bg.png) !important;
@@ -409,6 +427,10 @@ and (max-width: 1080px) {
 	font-size:17px;
 	padding: 13px 25px;
 	text-decoration:none !important;
+}
+.footer-colume-4 .new-account-widgets a:hover{
+   color:#000;
+   background-color:#ffffff;
 }
 .new-account-widgets .title-content{
 	margin:0;
@@ -439,6 +461,9 @@ and (max-width: 1080px) {
 	text-decoration:none !important;
 	font-weight:500;
 	position:relative;
+}
+.footer-copyright-widgets1 a:hover{
+   background-color:#F4B71E;
 }
 .footer-copyright-widgets1 a:after{
 	content:'';
@@ -474,6 +499,8 @@ and (max-width: 1080px) {
 	border-radius:50%;
 	position:relative;
 	cursor:pointer;
+}
+.bottom-to-top a{
 }
 .bottom-to-top a:after{
 	content:'';
@@ -888,6 +915,7 @@ section.error-404.not-found h1 {
    border-top: 0px solid #000 !important;
    border-left: 0px solid #000 !important;
    border-right:0px solid #000 !important;
+    background: transparent;
 }
 .search-box input:focus{
    border-top: 0px solid #000 !important;
@@ -922,4 +950,15 @@ section.no-results.not-found {
     line-height: 1.2;
     margin-bottom: 27px;
 }
-
+.jugajug-btn{
+    display:none !important;
+    position:relative;
+}
+.jugajug-btn a:after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-image: url(../img/top-arrow-btn.png) !important;
+    display: inline-block;
+    margin-left: 10px;
+}
