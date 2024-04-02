@@ -533,3 +533,121 @@ function custom_user_list_posts_html_shortcode_complain($atts) {
     return $output; // Return the generated HTML
 }
 add_shortcode('complain_admin_list', 'custom_user_list_posts_html_shortcode_complain');
+
+
+
+
+
+function custom_user_list_posts_html_shortcode_new_account($atts) {
+    $atts = shortcode_atts(
+        array(
+            'category' => '', // Default value for category
+        ),
+        $atts,
+        'custom_user_list' // Shortcode name
+    );
+
+    $args = array(
+        'post_type' => 'user-list',
+        'posts_per_page' => -1, // Retrieve all posts
+    );
+
+    // If a category is specified, add it to the query
+    if (!empty($atts['category'])) {
+        $args['category_name'] = $atts['category'];
+    }
+
+    $user_list_posts = new WP_Query($args);
+
+    ob_start(); // Start output buffering
+
+    if ($user_list_posts->have_posts()) {
+        while ($user_list_posts->have_posts()) {
+            $user_list_posts->the_post();
+
+			// var_dump(get_post_meta(get_the_ID(), 'complain_agent', true));
+
+			if(get_post_meta(get_the_ID(), 'new_account_agent', true) == '1'){
+				?>
+					<div class="complain-box">
+						<div class="focus-part-complain">
+
+							<div class="name-dig">
+
+								<div class="img"><?php the_post_thumbnail(); ?></div>
+
+								<div class="title-cat">
+									<div class="title"><?php the_title(); ?></div>
+									<div class="cat-dig <?php echo esc_attr(implode(' ', get_post_class())); ?>">
+										<?php 
+										$postcat = get_the_category(get_the_ID());
+										$postcat_name = $postcat[0]->name;
+										// var_dump(esc_html( $postcat[0]->name )); 
+										//echo get_the_category_list(', '); ?>
+										<?php //echo "বাংলাদেশ"; ?>
+
+
+										<?php
+										if ($postcat_name == "Customer Service") {
+											echo "কাস্টমার সার্ভিস";
+										} elseif ($postcat_name == "Sub Admin") {
+											echo "সাব-এডমিন";
+										} elseif ($postcat_name == "Admin") {
+											echo "এডমিন";
+										} elseif ($postcat_name == "Super Agent") {
+											echo "সুপার এজেন্ট";
+										} elseif ($postcat_name == "Master Agent") {
+											echo "মাস্টার এজেন্ট";
+										}else {
+											echo "";
+										}
+										?>
+
+
+									</div>
+								</div>
+
+							</div>
+
+							<div class="user-id">
+								<p class="id-ti">এজেন্ট আইডি</p>
+								<div class="id-value"><?php echo get_post_meta(get_the_ID(), 'user_id', true); ?></div>
+							</div>
+
+
+						</div>
+						<div class="social-connection-group complain-ss">
+							<div class="group-1">
+								<span class="value-1">WhatsApp <span>(Primary)</span></span>
+								<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></span>
+								<span class="copy-btn">Copy Number</span>
+								<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank">Message</a></span>
+							</div>
+
+							<div class="group-2">
+								<span class="value-1">WhatsApp <span>(Secondary)</span></span>
+								<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></span>
+								<span class="copy-btn">Copy Number</span>
+								<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?>" target="_blank">Message</a></span>
+							</div>
+
+							<div class="group-3">
+								<span class="value-1">Messenger</span>
+								<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'messenger', true); ?></span>
+								<span class="copy-btn">Copy</span>
+								<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'messenger', true); ?>" target="_blank">Message</a></span>
+							</div>
+						</div>
+					</div>
+				<?php
+			}
+        }
+        wp_reset_postdata();
+    } else {
+        // No posts found
+    }
+
+    $output = ob_get_clean(); // Get the output and clean the buffer
+    return $output; // Return the generated HTML
+}
+add_shortcode('new_account_list', 'custom_user_list_posts_html_shortcode_new_account');
