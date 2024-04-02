@@ -42,5 +42,12 @@
             $(this).toggleClass("active");
         });
     });
+
+
+    $(document).ready(function(){ 
+        // Change the placeholder attribute of the input field
+        $('.search-field').attr('placeholder', 'সার্চ...');
+    });
+
     
 })(jQuery);
