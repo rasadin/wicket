@@ -981,7 +981,6 @@ section.no-results.not-found {
 }
 .search-results .webalive-site-content{
 	margin-bottom:238px;
-    overflow-x:auto;
 }
 .search-results h1.page-title {
     font-size: 36px;
@@ -1057,6 +1056,9 @@ nav.navigation.posts-navigation {
 	border-top: 1px solid rgba(0, 0, 0, .12);
     padding-top: 28px;
     padding-bottom: 19px;
+}
+.accordin-pluginsection .ewd-ufaq-faq-body a{
+   color:#FEBE1E;
 }
 .accordin-pluginsection .ewd-ufaq-faq-title h1, 
 .accordin-pluginsection .ewd-ufaq-faq-title h2, 
