@@ -215,9 +215,10 @@ span.mb-toggle.js-hide-mb-nav i {
         display: none;
         width: 100%;
         padding: 0 0;
-        background: #fff;
+        background:#f8f8ef;
 		top: 98px;
 		position: absolute;
+       box-shadow: 0px 1px 8px 0px #0000001A;
     }
     .webalive-main-menu > li {
         display: block;
@@ -264,7 +265,7 @@ span.mb-toggle.js-hide-mb-nav i {
         width: 100%;
         position: relative;
         top: 0;
-        background-color: #fff;
+        background-color:#f8f8ef;
         padding: 0px 0px 0px 0px;
     }
     .webalive-main-menu > li ul.sub-menu > li {
@@ -756,8 +757,9 @@ cursor:pointer;
 }
 .social-connection-group span.value-4 a{
 	color:#000;
+	position:relative;
 }
-.social-connection-group span.value-4:before{
+.social-connection-group span.value-4 a:before{
 	content:'';
 	background: url(../../assets/img/messenger-icon.png) no-repeat;
 	width:22px;
@@ -864,6 +866,7 @@ border-bottom-left-radius: 10px;
 }
 .list-box .focus-part .name-dig{
    display:flex;
+   align-items: center;
 }
 .list-box .focus-part .hentry {
     margin: 0;
@@ -894,6 +897,10 @@ border-bottom-left-radius: 10px;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;  
+}
+.social-connection-group .group-3 span.value-2 a,
+.list-box .social-connection-group .group-3 span.value-2 a{
+	color:#000;
 }
 .list-box .title-cat{
 	font-size:21px;
@@ -1017,3 +1024,63 @@ nav.navigation.posts-navigation {
 .title-cat .title{
   color:#000000;
 }
+
+/*plugin accordin start*/
+.accordin-pluginsection div.ewd-ufaq-faq-title div.ewd-ufaq-post-margin-symbol {
+    text-decoration: none;
+    float: right !important;
+	margin-right:0px !important;
+	padding: 4px 0px 0px 2px;
+}
+.accordin-pluginsection .ewd-ufaq-faq-body {
+    padding: 10px 0;
+    padding-left: 0;
+    border-top:1px solid rgba(0, 0, 0, .12);
+    padding-top: 18px;
+}
+.accordin-pluginsection .ewd-ufaq-faq-body p{
+	line-height:32px;
+	margin-bottom:10px;
+}
+.accordin-pluginsection .ewd-ufaq-faq-body p:last-child{
+	margin-bottom:10px;
+}
+.accordin-pluginsection a {
+    color: #000;
+}
+.accordin-pluginsection .ewd-ufaq-faq-title .ewd-ufaq-post-margin-symbol span {
+    display: inline-block;
+    font-size: 21px !important;
+    margin: 0 auto;
+}
+.accordin-pluginsection .ewd-ufaq-faq-title{
+	border-top: 1px solid rgba(0, 0, 0, .12);
+    padding-top: 25px;
+    padding-bottom: 16px;
+}
+.accordin-pluginsection .ewd-ufaq-faq-title h1, 
+.accordin-pluginsection .ewd-ufaq-faq-title h2, 
+.accordin-pluginsection .ewd-ufaq-faq-title h3, 
+.accordin-pluginsection .ewd-ufaq-faq-title h4, 
+.accordin-pluginsection .ewd-ufaq-faq-title h5, 
+.accordin-pluginsection .ewd-ufaq-faq-title h6 {
+    display: inline-block;
+    margin: 0!important;
+}
+.accordin-pluginsection .ewd-ufaq-faqs .ewd-ufaq-faq-div:last-child .ewd-ufaq-faq-title{
+	border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+.accordin-pluginsection .ewd-ufaq-faqs .ewd-ufaq-faq-div:first-child .ewd-ufaq-faq-title{
+	border-top: 0px solid rgba(0, 0, 0, .12);
+}
+.accordin-pluginsection .ewd-ufaq-faqs .ewd-ufaq-faq-div:last-child .ewd-ufaq-faq-body {
+    padding: 10px 0;
+    padding-left: 0;
+    border-top:0px solid rgba(0, 0, 0, .12);
+    border-bottom:1px solid rgba(0, 0, 0, .12);
+    padding-top: 18px;
+}
+.accordin-pluginsection h4 {
+    font-size: 22px;
+}
+/*plugin accordin end*/

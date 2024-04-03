@@ -42,12 +42,7 @@
 .list-people-box .elementor-widget-container{
 	overflow-x:auto;
 }
-.complain-box {
-    border: 1px solid #E6E6E6;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    width: 814px;
-}
+
 .webalive-footer {
     min-height: 400px;
     background-color: #0C0C0C;
@@ -71,6 +66,7 @@
 }
 .footer-copyright-widgets1 .textwidget {
     margin-top: 38px;
+	margin-bottom: 58px;
 }
 .webalive-navbar-brand {
     max-width: 126px;
@@ -84,7 +80,7 @@
     top: 31px;
 }
 .webalive-main-menu {
-    top: 63px;
+    top:70px;
 }
    .search-box {
     position: initial;
@@ -103,9 +99,6 @@
     text-align: center;
 }
 
-.list-people-box .list-box {
-    width: 780px;
-}
 .webalive-site-content {
     min-height: 222px;
 }
@@ -123,12 +116,156 @@ section.no-results.not-found {
     font-size: 16px;
     padding: 11px 32px;
 }
+
+.list-box .focus-part {
+    padding: 28px 15px;
+}
+.list-box .focus-part img {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+}
+.list-box .title-cat {
+    font-size: 13px;
+}
+.list-box .focus-part .user-id {
+    min-width:93px;
+}
+.list-box .focus-part p.id-ti {
+    font-size: 11px;
+}
+.list-box .id-value {
+    font-size: 13px;
+}
+.list-box .focus-part.focus-part:before {
+    right: 15px;
+}
+.list-box .social-connection-group {
+    padding: 0 15px;
+}
+.social-connection-group span.value-1 {
+    font-size: 0;
+    min-width: 35px;
+    gap: 0;
+    margin-right: -10px;
+}
+.social-connection-group span.value-1 span {
+    font-size: 0;
+}
+.list-box .social-connection-group span.value-2 {
+    min-width: 148px;
+}
+.social-connection-group .copy-btn,
+.list-box .social-connection-group .copy-btn {
+    padding-left: 45px;
+    min-width:74px;
+    font-size: 0;
+}
+.social-connection-group span {
+    font-size: 0;
+}
+.social-connection-group span.value-4 a:before{
+    margin-top:0;
+}
+.social-connection-group span.value-2 {
+    font-size: 16px;
+}
+.list-box .focus-part .user-id:after {
+    height: 41px;
+    right: 12px;
+}
+.complain-box .focus-part-complain {
+    padding: 26px 15px 26px 15px;
+}
+.complain-box .focus-part-complain img {
+    width: 35px;
+    height: 35px;
+}
+.social-connection-group.complain-ss {
+    padding: 20px 15px 20px 15px;
+}
+.social-connection-group span {
+    display: block;
+}
+.social-connection-group span.value-2 {
+    font-size: 16px;
+    min-width: 143px;
+}
+.complain-box .id-value {
+    font-size: 13px;
+}
+.focus-part-complain .title {
+    font-size: 15px;
+}
+.complain-box .focus-part-complain .hentry {
+    margin: 0;
+    font-size: 12px;
+}
+.content-description p {
+    font-size: 16px;
+    line-height: 34px;
+}
+.agends-menubar ul {
+    padding-left: 20px;
+}
+.agends-menubar ul li.active a:before, 
+.agends-menubar ul li a:hover:before {
+    content: '';
+    width: 3px;
+    height: 25px;
+    background-color: #FEBE1E;
+    position: absolute;
+    left: -22px;
+}
+.agends-menubar ul li a {
+    font-size: 17px;
+}
+.accordin-pluginsection h4 {
+    font-size: 15px;
+}
+.accordin-pluginsection .ewd-ufaq-faq-title {
+    padding-top: 15px;
+    padding-bottom: 12px;
+}
+.accordin-pluginsection div.ewd-ufaq-faq-title div.ewd-ufaq-post-margin-symbol {
+    padding: 5px 0px 0px 2px;
+}
+.accordin-pluginsection .ewd-ufaq-faq-body p {
+    font-size: 15px;
+    line-height: 27px;
+	margin-bottom: 0px;
+}
+.accordin-pluginsection .ewd-ufaq-faq-title .ewd-ufaq-post-margin-symbol span {
+    font-size: 18px !important;
+}
+.list-box .focus-part .hentry {
+    font-size: 12px;
+}
+.bottom-to-top {
+    text-align: center;
+    margin-bottom: 13px;
+}
 }
 /*Mobile View Small*/
 @media only screen and (max-width:360px) {
-
+.social-connection-group span.value-1 {
+    margin-right:0px !important;
+}
 }
 /*Mobile Tiny Small*/
 @media only screen and (max-width:320px) {
+.list-box .social-connection-group span.value-2 {
+    min-width: 113px;
+    font-size: 13px;
+}
+.social-connection-group span.value-2{
+   min-width: 115px;
+   font-size: 13px;
+}
+.social-connection-group span.value-2,
+.social-connection-group .group-3 span.value-2, 
+.list-box .social-connection-group .group-3 span.value-2 {
+    font-size: 14px;
+}
 
 }
