@@ -891,12 +891,10 @@ border-bottom-left-radius: 10px;
 }
 .social-connection-group .group-3 span.value-2,
 .list-box .social-connection-group .group-3 span.value-2 {
-    font-size:16px;
+    font-size: 16px;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;  
+    white-space: nowrap; 
 }
 .social-connection-group .group-3 span.value-2 a,
 .list-box .social-connection-group .group-3 span.value-2 a{
