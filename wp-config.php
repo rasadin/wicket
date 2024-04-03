@@ -20,10 +20,12 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-// define( 'DB_NAME', 'rasadin' );
-define( 'DB_NAME', 'rasadin_1111' );
-// define( 'DB_NAME', 'rasadin_2222' );
 
+
+// pau
+define( 'DB_NAME', 'rasadin_1111' );
+
+// rasu
 //  define( 'DB_NAME', 'rasadin_3333' );
 
 
