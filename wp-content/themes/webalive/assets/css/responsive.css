@@ -120,13 +120,19 @@ section.no-results.not-found {
 .list-box .focus-part {
     padding: 28px 15px;
 }
+.name-dig .img{
+   min-width: 35px;
+}
 .list-box .focus-part img {
     width: 35px;
     height: 35px;
-    margin-right: 8px;
+    margin-right: 0px;
+}
+.list-box .focus-part .name-dig {
+    gap: 10px;
 }
 .list-box .title-cat {
-    font-size: 13px;
+    font-size: 14px;
 }
 .list-box .focus-part .user-id {
     min-width:93px;
@@ -241,6 +247,9 @@ section.no-results.not-found {
 .list-box .focus-part .hentry {
     font-size: 12px;
 }
+.focus-part-complain .user-id{
+   min-width:80px;
+}
 .bottom-to-top {
     text-align: center;
     margin-bottom: 13px;
@@ -250,6 +259,10 @@ section.no-results.not-found {
 @media only screen and (max-width:360px) {
 .social-connection-group span.value-1 {
     margin-right:0px !important;
+}
+.list-box .title-cat {
+    font-size: 13px;
+   
 }
 }
 /*Mobile Tiny Small*/
