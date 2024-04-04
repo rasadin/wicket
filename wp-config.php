@@ -26,7 +26,7 @@
 define( 'DB_NAME', 'rasadin_1111' );
 
 // rasu
-//  define( 'DB_NAME', 'rasadin_4444' );
+//  define( 'DB_NAME', 'rasadin_5555' );
 
 
 /** Database username */
