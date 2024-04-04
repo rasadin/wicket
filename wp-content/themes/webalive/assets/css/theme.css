@@ -891,12 +891,10 @@ border-bottom-left-radius: 10px;
 }
 .social-connection-group .group-3 span.value-2,
 .list-box .social-connection-group .group-3 span.value-2 {
-    font-size:16px;
+    font-size: 16px;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;  
+    white-space: nowrap; 
 }
 .social-connection-group .group-3 span.value-2 a,
 .list-box .social-connection-group .group-3 span.value-2 a{
@@ -981,7 +979,6 @@ section.no-results.not-found {
 }
 .search-results .webalive-site-content{
 	margin-bottom:238px;
-    overflow-x:auto;
 }
 .search-results h1.page-title {
     font-size: 36px;
@@ -1057,6 +1054,9 @@ nav.navigation.posts-navigation {
 	border-top: 1px solid rgba(0, 0, 0, .12);
     padding-top: 28px;
     padding-bottom: 19px;
+}
+.accordin-pluginsection .ewd-ufaq-faq-body a{
+   color:#FEBE1E;
 }
 .accordin-pluginsection .ewd-ufaq-faq-title h1, 
 .accordin-pluginsection .ewd-ufaq-faq-title h2, 
