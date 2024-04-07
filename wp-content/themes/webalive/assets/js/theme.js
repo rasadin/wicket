@@ -49,5 +49,21 @@
         $('.search-field').attr('placeholder', 'সার্চ...');
     });
 
+
+    $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollPos = $(window).scrollTop();
+          var mastheadHeight = $('#masthead').height();
+          var arrowImage = $('.top-arrow-image');
+      
+          // If masthead is out of window, add active class to arrow image
+          if (scrollPos > mastheadHeight) {
+            arrowImage.addClass('active');
+          } else {
+            arrowImage.removeClass('active');
+          }
+        });
+      });
+
     
 })(jQuery);

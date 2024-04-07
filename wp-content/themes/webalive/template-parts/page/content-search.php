@@ -26,7 +26,7 @@
 				<div class="cat-dig <?php echo esc_attr(implode(' ', get_post_class())); ?>">
 					<?php 
 					$postcat = get_the_category(get_the_ID());
-
+					if(isset($postcat[0])){
                     //var_dump($postcat);
 
 					$postcat_name = $postcat[0]->name;
@@ -49,6 +49,7 @@
 					}else {
 						echo "";
 					}
+				    }
 					?>
 
 

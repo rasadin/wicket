@@ -345,6 +345,7 @@ function custom_user_list_posts_html_shortcode($atts) {
 							<div class="cat-dig <?php echo esc_attr(implode(' ', get_post_class())); ?>">
 								<?php 
 								$postcat = get_the_category(get_the_ID());
+								if(isset($postcat[0])){
 								$postcat_name = $postcat[0]->name;
 								// var_dump(esc_html( $postcat[0]->name )); 
 								//echo get_the_category_list(', '); ?>
@@ -365,6 +366,7 @@ function custom_user_list_posts_html_shortcode($atts) {
 								}else {
 									echo "";
 								}
+							    }
 								?>
 
 
@@ -472,6 +474,7 @@ function custom_user_list_posts_html_shortcode_complain($atts) {
 									<div class="cat-dig <?php echo esc_attr(implode(' ', get_post_class())); ?>">
 										<?php 
 										$postcat = get_the_category(get_the_ID());
+										if(isset($postcat[0])){
 										$postcat_name = $postcat[0]->name;
 										// var_dump(esc_html( $postcat[0]->name )); 
 										//echo get_the_category_list(', '); ?>
@@ -492,6 +495,7 @@ function custom_user_list_posts_html_shortcode_complain($atts) {
 										}else {
 											echo "";
 										}
+									    }
 										?>
 
 
@@ -598,6 +602,9 @@ function custom_user_list_posts_html_shortcode_new_account($atts) {
 									<div class="cat-dig <?php echo esc_attr(implode(' ', get_post_class())); ?>">
 										<?php 
 										$postcat = get_the_category(get_the_ID());
+
+										// var_dump($postcat);
+                                    if(isset($postcat[0])){
 										$postcat_name = $postcat[0]->name;
 										// var_dump(esc_html( $postcat[0]->name )); 
 										//echo get_the_category_list(', '); ?>
@@ -618,6 +625,7 @@ function custom_user_list_posts_html_shortcode_new_account($atts) {
 										}else {
 											echo "";
 										}
+									}
 										?>
 
 
