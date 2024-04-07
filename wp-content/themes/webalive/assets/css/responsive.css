@@ -19,6 +19,13 @@
 .divided-shape-customer-service .elementor-widget-container{
 	margin-right:0px !important;
 }
+.footer-copyright-widgets1 a {
+    font-size: 18px;
+    padding: 11px 13px;
+}
+.footer-copyright-widgets1 .textwidget {
+    gap: 15px;
+}
 }
 /*Tab Landscape*/
 @media only screen and (max-width:1024px) {
@@ -43,6 +50,14 @@
 .agends-menubar ul li a {
     font-size: 14px;
     font-weight: 600;
+}
+.footer-copyright-widgets1 .textwidget p:first-child {
+    width: 100%;
+    text-align: center;
+}
+.footer-copyright-widgets1 a {
+    font-size: 17px;
+    padding: 11px 14px;
 }
 }
 /*Tab Portrait*/
@@ -69,6 +84,30 @@
     min-height: 400px;
     background-color: #0C0C0C;
     padding: 69px 0px 0px 0px;
+}
+.list-box .social-connection-group .copy-btn{
+	min-width: 131px;
+}
+.social-connection-group span.value-2 {
+    min-width: 248px;
+}
+.social-connection-group .group-3 span.value-2, 
+.list-box .social-connection-group .group-3 span.value-2 {
+    font-size: 15px;
+
+}
+.list-box .social-connection-group .copy-btn {
+    padding-left: 8px;
+}
+.social-connection-group span.value-2 {
+    min-width: 170px;
+}
+.social-connection-group .copy-btn {
+    padding-left:20px;
+    min-width: 150px;
+}
+.social-connection-group span {
+    font-size: 12px;
 }
 }
 /*Tab Portrait*/

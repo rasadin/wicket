@@ -577,6 +577,7 @@ span.mb-toggle.js-hide-mb-nav i {
 .top-arrow-image img{
 	transition: all .5s ease-in !important;
 }
+.top-arrow-image.active img,
 .top-arrow-image:hover img{
 	transform: rotate(45deg);
 	transition: all .5s ease-in !important;
