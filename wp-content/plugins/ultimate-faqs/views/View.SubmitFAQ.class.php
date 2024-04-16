@@ -7,6 +7,21 @@
  */
 class ewdufaqViewSubmitFAQ extends ewdufaqView {
 
+	// shortcode attributes
+	public $success_message;
+	public $submit_faq_form_title;
+	public $submit_faq_instructions;
+	public $submit_text;
+
+	// captcha
+	public $captcha_form_code;
+
+	// update message
+	public $update_message;
+
+	// pointers
+	public $current_field;
+
 	/**
 	 * Render the view and enqueue required stylesheets
 	 * @since 2.0.0

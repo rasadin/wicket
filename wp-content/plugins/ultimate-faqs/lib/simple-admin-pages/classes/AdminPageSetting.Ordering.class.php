@@ -18,7 +18,9 @@
  * @package Simple Admin Pages
  */
 
-class sapAdminPageSettingOrdering_2_6_13 extends sapAdminPageSetting_2_6_13 {
+class sapAdminPageSettingOrdering_2_6_19 extends sapAdminPageSetting_2_6_19 {
+
+	public $items;
 
 	public $sanitize_callback = 'sanitize_text_field';
 
@@ -80,9 +82,14 @@ class sapAdminPageSettingOrdering_2_6_13 extends sapAdminPageSetting_2_6_13 {
 						<?php } ?>
 					</tbody>
 				</table>
+
+				<div class='sap-ordering-table-restore-default button button-primary'>
+					<?php _e( 'Restore Default Order', 'simple-admin-pages' ); ?>
+				</div>
 			</div>
 
 			<?php $this->display_disabled(); ?>
+
 		</fieldset>
 
 		<?php

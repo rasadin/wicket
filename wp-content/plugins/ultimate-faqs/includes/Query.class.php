@@ -47,6 +47,15 @@ class ewdufaqQuery {
 	 */
 	public $context;
 
+	// The total number of faqs found matching the current query parameters
+	public $found_faqs = array();
+
+	// Current page of faqs being retrieved
+	public $current_page;
+
+	// Max number of pages of faqs matching the query
+	public $max_page;
+
 	/**
 	 * Instantiate the query with an array of arguments
 	 *
@@ -93,7 +102,7 @@ class ewdufaqQuery {
 
 		$args = $this->args;
 
-		$this->include_children = ( ! empty( $args['include_children'] ) and strtolower( $args['include_children'] ) != 'yes' ) ? false : true;
+		$args['include_children'] = ( ! empty( $args['include_children'] ) and strtolower( $args['include_children'] ) != 'yes' ) ? false : true;
 
 		if ( ! empty( $args['search_string'] ) ) { $args['s'] = $args['search_string']; }
 
@@ -115,7 +124,7 @@ class ewdufaqQuery {
 				'taxonomy' 			=> EWD_UFAQ_FAQ_CATEGORY_TAXONOMY,
 				'field' 			=> 'slug',
 				'terms' 			=> $include_category_array,
-				'include_children' 	=> $this->include_children
+				'include_children' 	=> $args['include_children']
 			);
 		}
 
@@ -128,7 +137,7 @@ class ewdufaqQuery {
 				'field' 			=> 'slug',
 				'operator'			=> 'NOT IN',
 				'terms' 			=> $exclude_category_array,
-				'include_children' 	=> $this->include_children
+				'include_children' 	=> $args['include_children']
 			);
 		}
 
@@ -140,7 +149,7 @@ class ewdufaqQuery {
 				'taxonomy' 			=> EWD_UFAQ_FAQ_CATEGORY_TAXONOMY,
 				'field' 			=> 'term_id',
 				'terms' 			=> $include_category_ids_array,
-				'include_children' 	=> $this->include_children
+				'include_children' 	=> $args['include_children']
 			);
 		}
 
@@ -153,7 +162,7 @@ class ewdufaqQuery {
 				'field' 			=> 'term_id',
 				'operator'			=> 'NOT IN',
 				'terms' 			=> $exclude_category_ids_array,
-				'include_children' 	=> $this->include_children
+				'include_children' 	=> $args['include_children']
 			);
 		}
 

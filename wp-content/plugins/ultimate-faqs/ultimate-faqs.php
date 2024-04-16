@@ -3,7 +3,7 @@
  * Plugin Name: Ultimate FAQ - WordPress FAQ and Accordion Plugin
  * Plugin URI: https://www.etoilewebdesign.com/plugins/ultimate-faq/
  * Description: FAQ and accordion plugin with easy to use Gutenberg blocks, shortcodes and widgets. Includes an advanced FAQ search and FAQ schema.
- * Version: 2.2.11
+ * Version: 2.2.12
  * Author: Etoile Web Design
  * Author URI: https://www.etoilewebdesign.com/
  * Terms and Conditions: https://www.etoilewebdesign.com/plugin-terms-and-conditions/
@@ -11,7 +11,7 @@
  * Domain Path: /languages/
  * Requires at least: 6.0
  * WC requires at least: 7.1
- * WC tested up to: 8.4
+ * WC tested up to: 8.7
  */
 
 if ( ! defined( 'ABSPATH' ) )
@@ -20,10 +20,23 @@ if ( ! defined( 'ABSPATH' ) )
 if ( ! class_exists( 'ewdufaqInit' ) ) {
 class ewdufaqInit {
 
+	// pointers to classes used by the plugin, where needed
+	public $cpts;
+	public $permissions;
+	public $settings;
+	public $woocommerce;
+	public $wpforms;
+
 	// Any data that needs to be passed from PHP to our JS files 
 	public $front_end_php_js_data = array();
 
 	public $schema_faq_data = array();
+
+	// whether a shortcode is currently outputting content
+	public $shortcode_printing = false;
+
+	// whether a single FAQ page is being displayed
+	public $single_page_print = false;
 
 	/**
 	 * Initialize the plugin and register hooks
@@ -49,7 +62,7 @@ class ewdufaqInit {
 		define( 'EWD_UFAQ_PLUGIN_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 		define( 'EWD_UFAQ_PLUGIN_FNAME', plugin_basename( __FILE__ ) );
 		define( 'EWD_UFAQ_TEMPLATE_DIR', 'ewd-ufaq-templates' );
-		define( 'EWD_UFAQ_VERSION', '2.2.11' );
+		define( 'EWD_UFAQ_VERSION', '2.2.12' );
 
 		define( 'EWD_UFAQ_FAQ_POST_TYPE', 'ufaq' );
 		define( 'EWD_UFAQ_FAQ_CATEGORY_TAXONOMY', 'ufaq-category' );

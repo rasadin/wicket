@@ -24,7 +24,7 @@
  * @package Simple Admin Pages
  */
 
-class sapAdminPageSettingCount_2_6_13 extends sapAdminPageSetting_2_6_13 {
+class sapAdminPageSettingCount_2_6_19 extends sapAdminPageSetting_2_6_19 {
 
 	public $sanitize_callback = 'sanitize_text_field';
 
@@ -66,8 +66,6 @@ class sapAdminPageSettingCount_2_6_13 extends sapAdminPageSetting_2_6_13 {
 	public function display_setting() {
 
 		$this->value = $this->value ? $this->value : $this->default;
-
-
 
 		$count = strpos( strval( $this->value ), '_' ) !== false ? substr( $this->value, 0, strpos( $this->value, '_' ) ) : $this->value; 
 		$unit = strpos( strval( $this->value ), '_' ) !== false ? substr( $this->value, strpos( $this->value, '_' ) + 1 ) : '';

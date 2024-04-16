@@ -25,3 +25,6 @@ ORDERING TABLE
     color: #fff;
     text-align: left;
 }
+.sap-ordering-table-restore-default.button-primary {
+    margin-top: 16px;
+}

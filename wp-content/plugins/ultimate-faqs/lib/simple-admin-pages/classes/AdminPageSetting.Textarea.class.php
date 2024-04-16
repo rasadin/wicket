@@ -9,7 +9,7 @@
  * @todo textareas should have an option to swap new lines for <br>s
  */
 
-class sapAdminPageSettingTextarea_2_6_13 extends sapAdminPageSetting_2_6_13 {
+class sapAdminPageSettingTextarea_2_6_19 extends sapAdminPageSetting_2_6_19 {
 
 	/*
 	 * Size of this textarea
@@ -19,6 +19,8 @@ class sapAdminPageSettingTextarea_2_6_13 extends sapAdminPageSetting_2_6_13 {
 	 * style for full-width textareas.
 	 */
 	public $size = 'small';
+
+	public $placeholder;
 
 	public $sanitize_callback = 'wp_kses_post';
 

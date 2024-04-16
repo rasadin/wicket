@@ -19,6 +19,15 @@ class ewdufaqView extends ewdufaqBase {
 		'title'							 => 'content/title',
 	);
 
+	// Locations that should be searched for templates
+	public $template_dirs;
+
+	// Default labels, used a fallbacks if no admin inputted label exists
+	public $label_defaults = array();
+
+	// The classes that should be added to the main form div
+	public $classes;
+
 	/**
 	 * Initialize the class
 	 * @since 2.0.0
@@ -220,29 +229,29 @@ class ewdufaqView extends ewdufaqBase {
 
 		if ( $ewd_ufaq_controller->settings->get_setting( 'disable-microdata' ) ) { return; }
 
-		foreach ( $this->faqs as $faq ) {
+		foreach ( $this->faqs as $faq_view ) {
 
 			$schema_object = array(
 					'@type' => 'Question',
-					'name'  => $faq->question,
+					'name'  => $faq_view->faq->question,
 					'acceptedAnswer' => array(
 						'@type' => 'Answer',
-						'text'  => $this->strip_comment_tags( $faq->answer ),
+						'text'  => $this->strip_comment_tags( $faq_view->faq->answer ),
 					)
 			);
 
-			if ( ! empty( $faq->up_votes ) ) {
-				$schema_object['acceptedAnswer']['upvoteCount'] = $faq->up_votes;
+			if ( ! empty( $faq_view->faq->up_votes ) ) {
+				$schema_object['acceptedAnswer']['upvoteCount'] = $faq_view->faq->up_votes;
 			}
 
-			if ( ! empty( $faq->down_votes ) ) {
-				$schema_object['acceptedAnswer']['downvoteCount'] = $faq->down_votes;
+			if ( ! empty( $faq_view->faq->down_votes ) ) {
+				$schema_object['acceptedAnswer']['downvoteCount'] = $faq_view->faq->down_votes;
 			}
 
-			if ( ! empty( $faq->faq_author ) ) {
+			if ( ! empty( $faq_view->faq->faq_author ) ) {
 				$schema_object['acceptedAnswer']['author'] = array(
 					'@type' => 'Person',
-					'name'  => $faq->faq_author
+					'name'  => $faq_view->faq->faq_author
 				);
 			}
 

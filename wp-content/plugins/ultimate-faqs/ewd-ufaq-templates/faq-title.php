@@ -1,6 +1,6 @@
 <div class='ewd-ufaq-faq-title <?php echo ( ! $this->get_option( 'disable-faq-toggle' ) ? 'ewd-ufaq-faq-toggle' : '' ) ?>'>
 	
-	<a class='ewd-ufaq-post-margin'  href='<?php echo esc_attr( $this->get_anchor_permalink() ); ?>'>
+	<a class='ewd-ufaq-post-margin'  href='<?php echo esc_attr( $this->get_anchor_permalink() ); ?>' <?php echo ( ! $this->get_option( 'disable-faq-toggle' ) ? 'role="button"' : '' ) ?>>
 
 		<div class='ewd-ufaq-post-margin-symbol <?php echo esc_attr( $this->get_color_block_shape() ); ?>'>
 			<span ><?php echo esc_attr( $this->get_toggle_symbol() ); ?></span>

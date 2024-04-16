@@ -7,7 +7,7 @@
  * @package Simple Admin Pages
  */
 
-class sapAdminPage_2_6_13 {
+class sapAdminPage_2_6_19 {
 
 	public $title;
 	public $menu_title;
@@ -28,6 +28,22 @@ class sapAdminPage_2_6_13 {
 
 		// Parse the values passed
 		$this->parse_args( $args );
+	}
+
+	/**
+	 * Implement magic __set to avoid PHP 8.2 dynamic property deprecation
+	 */
+	public function __set( $name, $value ) {
+
+		$this->$name = $value;
+	}
+
+	/**
+	 * Implement magic __set to avoid PHP 8.2 dynamic property deprecation
+	 */
+	public function __get( $name ) {
+
+		return $this->$name;
 	}
 
 	/**

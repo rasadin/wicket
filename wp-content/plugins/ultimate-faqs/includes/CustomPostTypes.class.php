@@ -9,6 +9,8 @@ if ( !defined( 'ABSPATH' ) )
 if ( !class_exists( 'ewdufaqCustomPostTypes' ) ) {
 class ewdufaqCustomPostTypes {
 
+	public $nonce;
+
 	public function __construct() {
 
 		// Call when plugin is initialized on every page load

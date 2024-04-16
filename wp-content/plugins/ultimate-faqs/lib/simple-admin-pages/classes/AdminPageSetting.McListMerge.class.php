@@ -14,7 +14,24 @@
  *
  */
 
-class mcfrtbAdminPageSettingMcListMerge_2_6_13 {
+class mcfrtbAdminPageSettingMcListMerge_2_6_19 {
+
+	// Page defaults
+	public $id; // used in form fields and database to track and store setting
+	public $page; // id of the menu/submenu page this setting is attached to
+	public $tab; //  id of the tab (if any) for this setting
+	public $title; // setting label
+	public $description; // optional description of the setting
+	public $value; // value of the setting, if a value exists
+	public $disabled = false; // whether a setting should be disabled
+	public $placeholder; // optional placeholder for the API key field 
+	public $string_loading; // string to display while loading the list options
+	public $conditional_on; // optional setting that this one is dependent on to diplay (ex. payment enabled for payment settings)
+	public $conditional_on_value; // the required value of the dependent setting, if enabled
+	public $conditional_display = true; // whether this setting should be displayed based on its conditional settings
+
+	// For saving any args used internally
+	public $args = array();
 	
 	/**
 	 * Scripts and styles to load for this component
@@ -44,7 +61,7 @@ class mcfrtbAdminPageSettingMcListMerge_2_6_13 {
 			$this->set_error();
 		}
 	}
-
+	
 	/**
 	 * Parse the arguments passed in the construction and assign them to
 	 * internal variables. This function will be overwritten for most subclasses

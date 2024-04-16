@@ -26,13 +26,24 @@ jQuery(document).ready(function ($) {
   
       });
 
-      main_input.val(JSON.stringify(main_input_val));
-
+      if ( main_input_val.length ) { main_input.val( JSON.stringify( main_input_val ) ); }
     });
   });
 
   $('.sap-ordering-table table tbody').sortable({
     axis: 'y'
   });
+
+  //reset field to default
+  $( '.sap-ordering-table-restore-default' ).on( 'click', function() {
+
+    var table_div = jQuery( this ).closest( '.sap-ordering-table' );
+
+    table_div.find( '#sap-ordering-table-main-input' ).first().val( '' );
+
+    table_div.find( 'table tbody tr' ).remove();
+
+    table_div.find( 'table' ).append( '<tfoot><tr><td>Save the page to restore the default order</td></tr></tfoot>' );
+  } );
 
 })

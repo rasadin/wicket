@@ -14,8 +14,9 @@
  * @package Simple Admin Pages
  */
 
-class sapAdminPageSettingHTML_2_6_13 extends sapAdminPageSetting_2_6_13 {
+class sapAdminPageSettingHTML_2_6_19 extends sapAdminPageSetting_2_6_19 {
 
+	public $html; // The HTML that should be displayed by this option
 	public $sanitize_callback = 'sanitize_text_field';
 
 	/**

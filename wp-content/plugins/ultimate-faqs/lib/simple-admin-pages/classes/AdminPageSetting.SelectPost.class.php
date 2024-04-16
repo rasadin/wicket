@@ -17,7 +17,7 @@
  * @package Simple Admin Pages
  */
 
-class sapAdminPageSettingSelectPost_2_6_13 extends sapAdminPageSetting_2_6_13 {
+class sapAdminPageSettingSelectPost_2_6_19 extends sapAdminPageSetting_2_6_19 {
 
 	public $sanitize_callback = 'intval';
 

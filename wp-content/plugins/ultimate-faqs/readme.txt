@@ -2,8 +2,8 @@
 Contributors: Rustaurius
 Tags: faq, faqs, accordion, woocommerce faq, gutenberg faq, faq block
 Requires at least: 6.0
-Tested up to: 6.4
-Stable tag: 2.2.11
+Tested up to: 6.5
+Stable tag: 2.2.12
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -260,6 +260,11 @@ For more info about the premium version, please see here: https://doc.etoilewebd
 
 
 == Changelog ==
+
+= 2.2.12 (2024-04-03) =
+- Added role attribute to toggle links for accessibility.
+- Added alt tag to thumbs up and down images. 
+- Tested for compatibility with WP 6.5 and PHP 8.2, and eliminated/fixed deprecated notices associated with this.	
 
 = 2.2.11 (2023-12-19) =
 - Fix for strtolower-related PHP 8.1+ deprecated notice.

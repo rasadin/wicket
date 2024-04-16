@@ -1,5 +1,5 @@
 <?php
-if ( !class_exists( 'sapLibrary_2_6_13' ) ) {
+if ( !class_exists( 'sapLibrary_2_6_19' ) ) {
 /**
  * This library class loads and provides access to the correct version of the
  * Simple Admin Pages library.
@@ -7,10 +7,10 @@ if ( !class_exists( 'sapLibrary_2_6_13' ) ) {
  * @since 1.0
  * @package Simple Admin Pages
  */
-class sapLibrary_2_6_13 {
+class sapLibrary_2_6_19 {
 
 	// Version of the library
-	private $version = '2.6.13';
+	private $version = '2.6.19';
 
 	// A full URL to the library which is used to correctly link scripts and
 	// stylesheets.
@@ -49,7 +49,7 @@ class sapLibrary_2_6_13 {
 	public function __construct( $args ) {
 
 		if ( ! defined( 'SAP_VERSION' ) ) {
-			define( 'SAP_VERSION', '2.6.13' );
+			define( 'SAP_VERSION', '2.6.19' );
 		}
 
 		// If no URL path to the library is passed, we won't be able to add the
@@ -345,6 +345,20 @@ class sapLibrary_2_6_13 {
 			$this->pages[ $page ]->sections[ $section ]->add_setting( new $class( $args ) );
 		}
 
+	}
+
+	/**
+	 * Removes a setting from a section after it's been initialized
+	 *
+	 * @since 2.6.15
+	 */
+	public function remove_setting( $page, $section, $setting_id ) {
+
+		if ( !isset( $this->pages[ $page ] ) || !isset( $this->pages[ $page ]->sections[ $section ] ) || !isset( $this->pages[ $page ]->sections[ $section ]->settings[ $setting_id ] ) ) {
+			return false;
+		}
+
+		unset( $this->pages[ $page ]->sections[ $section ]->settings[ $setting_id ] );
 	}
 
 	/**

@@ -8,7 +8,11 @@
  * @package Simple Admin Pages
  */
 
-class sapAdminPageMenu_2_6_13 extends sapAdminPage_2_6_13 {
+class sapAdminPageMenu_2_6_19 extends sapAdminPage_2_6_19 {
+
+	public $default_tab; // which menu tab to option on page load, if none selected
+	public $position; // what priority should be entered for the page
+	public $icon; // which icon should be associated with the page in the sidebar
 
 	public $setup_function = 'add_menu_page'; // WP function to register the page
 

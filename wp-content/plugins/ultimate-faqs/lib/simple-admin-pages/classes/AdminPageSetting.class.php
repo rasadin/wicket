@@ -16,10 +16,12 @@
  * @package Simple Admin Pages
  */
 
-abstract class sapAdminPageSetting_2_6_13 {
+abstract class sapAdminPageSetting_2_6_19 {
 
 	// Page defaults
 	public $id; // used in form fields and database to track and store setting
+	public $page; // id of the menu/submenu page this setting is attached to
+	public $tab; //  id of the tab (if any) for this setting
 	public $title; // setting label
 	public $description; // optional description of the setting
 	public $value; // value of the setting, if a value exists
@@ -122,6 +124,12 @@ abstract class sapAdminPageSetting_2_6_13 {
 		 */
 	);
 
+	// Acceptable option values, for defined-choice options
+	public $options = array();
+
+	// The default option value that should be selected for defined-choice options
+	public $default;
+	
 	/**
 	 * Initialize the setting
 	 *
@@ -251,15 +259,17 @@ abstract class sapAdminPageSetting_2_6_13 {
 
 		$option_group_value = get_option( $this->page );
 
+		if ( empty( $option_group_value ) ) { return; }
+
 		$option_group_value[ $this->conditional_on ] = isset( $option_group_value[ $this->conditional_on ] ) ? $option_group_value[ $this->conditional_on ] : false;
 
 		if ( is_array( $option_group_value[ $this->conditional_on ] ) ) {
 
-			$this->conditional_display = in_array( $this->conditional_on_value, $option_group_value[ $this->conditional_on ] );
+			$this->conditional_display = is_array( $this->conditional_on_value ) ? ! empty( array_intersect( $this->conditional_on_value, $option_group_value[ $this->conditional_on ] ) ) : in_array( $this->conditional_on_value, $option_group_value[ $this->conditional_on ] );
 		}
 		else {
 
-			$this->conditional_display = $this->conditional_on_value == $option_group_value[ $this->conditional_on ] ? true : false;
+			$this->conditional_display = is_array( $this->conditional_on_value ) ? in_array( $option_group_value[ $this->conditional_on ], $this->conditional_on_value )  : ( $this->conditional_on_value == $option_group_value[ $this->conditional_on ] ? true : false );
 		}
 
 		if ( ! empty( $this->conditional_display ) ) { return; }
@@ -284,7 +294,7 @@ abstract class sapAdminPageSetting_2_6_13 {
 		if ( empty( $this->conditional_on ) ) { return; }
 
 		echo 'data-conditional_on="' . esc_attr( $this->conditional_on ) . '"';
-		echo 'data-conditional_on_value="' . esc_attr( $this->conditional_on_value ) . '"';
+		echo 'data-conditional_on_value="' . esc_attr( is_array( $this->conditional_on_value ) ? implode( ',', $this->conditional_on_value ) : $this->conditional_on_value ) . '"';
 	}
 
 	/**

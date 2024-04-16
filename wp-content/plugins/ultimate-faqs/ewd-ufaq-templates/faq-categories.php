@@ -2,9 +2,9 @@
 	
 	<?php echo esc_html( $this->get_categories_label() ); ?>
 
-	<?php foreach( $this->categories as $key => $category ) { ?>
+	<?php foreach( $this->faq->categories as $key => $category ) { ?>
 
-		<?php echo $this->get_category_value( $category ) . ( $key != sizeOf( $this->categories ) - 1 ? ', ' : '' ); ?>
+		<?php echo $this->get_category_value( $category ) . ( $key != sizeOf( $this->faq->categories ) - 1 ? ', ' : '' ); ?>
 
 	<?php } ?>
 

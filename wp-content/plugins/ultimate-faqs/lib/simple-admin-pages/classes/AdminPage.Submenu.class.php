@@ -8,11 +8,11 @@
  * @package Simple Admin Pages
  */
 
-class sapAdminPageSubmenu_2_6_13 extends sapAdminPage_2_6_13 {
+class sapAdminPageSubmenu_2_6_19 extends sapAdminPage_2_6_19 {
 
 	public $setup_function = 'add_submenu_page'; // WP function to register the page
-
 	public $parent_menu = null; // Which menu to attach this submenu page to
+	public $default_tab; // which menu tab to option on page load, if none selected
 
 	/**
 	 * Add the page to the appropriate menu slot.

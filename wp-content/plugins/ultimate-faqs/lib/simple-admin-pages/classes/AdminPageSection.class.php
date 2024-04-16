@@ -7,14 +7,24 @@
  * @package Simple Admin Pages
  */
 
-class sapAdminPageSection_2_6_13 {
+class sapAdminPageSection_2_6_19 {
 
 	// Page defaults
 	public $id; // unique id for this section
+	public $page; // id of the menu/submenu page this section is attached to
+	public $tab; // optional id of the parent tab (if) for this section
 	public $title; // optional title to display above this section
 	public $description; // optional description of the section
+	public $is_tab = false; // whether this section should be a tab (parent) section
 	public $settings = array(); // Array of settings to display in this option set
+	public $rank; // optional ordering rank for this section
 	public $disabled = false; // whether a setting should be disabled
+	public $ultimate_needed; // whether a the ultimate version of a plugin is needed for this section
+	public $disabled_image; // image to overlay when a section is disabled
+	public $purchase_link; // link to purchase, when a section is disabled
+	public $tutorial_yt_id; // optional ID of a YouTube tutorial for this section
+	public $show_submit_button; // whether or not to display options save button
+	public $callback; // optional function to call to display a particular section
 
 	// Array to store errors
 	public $errors = array();
@@ -37,7 +47,6 @@ class sapAdminPageSection_2_6_13 {
 				)
 			);
 		}
-
 	}
 
 	/**
@@ -135,7 +144,7 @@ class sapAdminPageSection_2_6_13 {
 			<?php echo ( isset($this->purchase_link ) ? "<div class='sap-premium-options-table-overlay'>" : '' ); ?>
 				<div class="section-disabled">
 					<img src="<?php echo plugins_url( '../img/options-asset-lock.png', __FILE__ ); ?>" alt="Upgrade to Premium">
-					<p>Access this section by upgrading to <?php echo ( isset( $this->ultimate_needed ) ? 'ultimate' : 'premium' ); ?></p>
+					<p>Access this section by upgrading to <?php echo ( ! empty( $this->ultimate_needed ) ? 'ultimate' : 'premium' ); ?></p>
 					<a href="<?php echo esc_url( add_query_arg( 'utm_content', $this->id, $this->purchase_link ) ); ?>" class="sap-dashboard-get-premium-widget-button" target="_blank">UPGRADE NOW</a>
 				</div>
 			<?php echo ( isset( $this->purchase_link ) ? "</div>" : '' ); ?>

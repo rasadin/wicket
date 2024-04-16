@@ -7,6 +7,18 @@
  */
 class ewdufaqViewFAQSearch extends ewdufaqViewFAQs {
 
+	// shortcode attributes
+	public $include_category_array;
+	public $include_category;
+	public $exclude_category;
+	public $show_on_load;
+	public $no_comments;
+	public $orderby;
+	public $order;
+	public $display_all_answers;
+	public $faq_page;
+	public $post_count;
+
 	/**
 	 * Render the view and enqueue required stylesheets
 	 * @since 2.0.0

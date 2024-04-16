@@ -96,6 +96,7 @@
 }
 .wrap.sap-settings-page form .form-table {
     width: 100%;
+    overflow-x: auto;
     box-sizing: border-box;
     margin: 0 auto 16px;
     box-shadow: 0 1px 12px #ddd;

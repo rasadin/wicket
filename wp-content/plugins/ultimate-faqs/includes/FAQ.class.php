@@ -9,6 +9,28 @@ if ( !class_exists( 'ewdufaqFAQ' ) ) {
  */
 class ewdufaqFAQ {
 
+	// from  WP post
+	public $post;
+	public $ID;
+	public $question; // post_title
+	public $date; 
+	public $answer; // post_content
+	public $post_status;
+
+	// post terms
+	public $categories;
+	public $tags;
+
+	// post meta
+	public $faq_author;
+	public $faq_author_email;
+	public $views;
+	public $up_votes;
+	public $down_votes;
+
+	// custom fields
+	public $custom_fields = array();
+
 	/**
 	 * Whether or not this request has been processed. Used to prevent
 	 * duplicate forms on one page from processing an FAQ form more than
@@ -22,8 +44,6 @@ class ewdufaqFAQ {
 	 * @since 2.0.0
 	 */
 	public $FAQ_inserted = false;
-
-	public $custom_fields = array();
 
 	public function __construct() {}
 

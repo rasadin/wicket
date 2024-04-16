@@ -38,14 +38,16 @@ jQuery(document).ready(function() {
         
         var option = jQuery( this );
         var option_name = jQuery( 'input[name="option_page"]' ).val() + '[' + option.data( 'conditional_on' ) + ']';
-        
-        jQuery( '[name="' + option_name + '"], [name="' + option_name + '[]"]' ).on( 'change', function() {
+
+        jQuery( '[name="' + option_name + '"], [name="' + option_name + '[]"]' ).on( 'change', function() { 
             
+            var conditional_on_value = String( option.data( 'conditional_on_value' ) ).split( ',' ); 
+
             var option_value = jQuery( this ).attr( 'type' ) != 'checkbox' ? jQuery( this ).val() : 
                                 ( ( option.data( 'conditional_on_value' ) == 1 || option.data( 'conditional_on_value' ) == '' ) ? jQuery( this ).is( ':checked' ) : 
-                                    ( jQuery( this ).is( ':checked' ) ? option.data( 'conditional_on_value' ) : false ) );
-
-            if ( option_value == option.data( 'conditional_on_value' ) ) {
+                                    ( jQuery( this ).is( ':checked' ) ? option.data( 'conditional_on_value' ) : false ) ); 
+                                
+            if ( jQuery.inArray( option_value, conditional_on_value ) !== -1 || ( option_value === true && conditional_on_value[0] === '1' ) ) {
 
                 option.parent().parent().removeClass( 'sap-hidden' );
             }

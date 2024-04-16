@@ -10,7 +10,7 @@
  * @package Simple Admin Pages
  */
 
-class sapAdminPageSettingScheduler_2_6_13 extends sapAdminPageSetting_2_6_13 {
+class sapAdminPageSettingScheduler_2_6_19 extends sapAdminPageSetting_2_6_19 {
 
 	public $sanitize_callback = 'sanitize_text_field';
 
@@ -186,6 +186,11 @@ class sapAdminPageSettingScheduler_2_6_13 extends sapAdminPageSetting_2_6_13 {
 	 * Boolean to disable multiple rules per component
 	 */
 	public $disable_multiple = false;
+
+	/**
+	 * Schedule summary strings that can be passed to scripts
+	 */
+	public $schedule_summaries = array();
 
 	/**
 	 * Escape the value to display it in text fields and other input fields

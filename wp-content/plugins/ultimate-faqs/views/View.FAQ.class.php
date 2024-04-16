@@ -7,6 +7,30 @@
  */
 class ewdufaqViewFAQ extends ewdufaqView {
 
+	// FAQ being displayed
+	public $faq;
+
+	// attributes from View.FAQs
+	public $display_all_answers;
+	public $no_comments;
+	public $current_url;
+
+	// used by FAQ search
+	public $is_search;
+	public $search_string;
+
+	// unique ID for FAQ, in case multiple shortcodes used on same page
+	public $unique_id;
+
+	// FAQ view-specific content
+	public $faq_title;
+	public $faq_answer;
+	public $faq_preview;
+	public $date;
+
+	// permalink to use when ouputting
+	public $permalink;
+
 	public function __construct( $args ) {
 
 		parent::__construct( $args );
@@ -63,7 +87,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 	public function maybe_print_faq_preview() {
 		global $ewd_ufaq_controller;
 		
-		if ( ! strlen( $this->post->post_excerpt ) ) { return; }
+		if ( ! strlen( $this->faq->post->post_excerpt ) ) { return; }
 		
 		$template = $this->find_template( 'faq-preview' );
 		
@@ -146,7 +170,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 	public function maybe_print_author() {
 		global $ewd_ufaq_controller;
 		
-		if ( ! $ewd_ufaq_controller->settings->get_setting( 'display-author' ) or ! $this->faq_author ) { return; }
+		if ( ! $ewd_ufaq_controller->settings->get_setting( 'display-author' ) or ! $this->faq->faq_author ) { return; }
 		
 		$template = $this->find_template( 'faq-author' );
 		
@@ -215,7 +239,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 	public function maybe_print_categories() {
 		global $ewd_ufaq_controller;
 		
-		if ( $ewd_ufaq_controller->settings->get_setting( 'hide-categories' ) or ! $this->categories ) { return; }
+		if ( $ewd_ufaq_controller->settings->get_setting( 'hide-categories' ) or ! $this->faq->categories ) { return; }
 		
 		$template = $this->find_template( 'faq-categories' );
 		
@@ -232,7 +256,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 	public function maybe_print_tags() {
 		global $ewd_ufaq_controller;
 		
-		if ( $ewd_ufaq_controller->settings->get_setting( 'hide-tags' ) or ! $this->tags ) { return; }
+		if ( $ewd_ufaq_controller->settings->get_setting( 'hide-tags' ) or ! $this->faq->tags ) { return; }
 		
 		$template = $this->find_template( 'faq-tags' );
 		
@@ -309,11 +333,11 @@ class ewdufaqViewFAQ extends ewdufaqView {
 		
 		if ( $this->no_comments ) { return; }
 		
-		$comments = get_comments( array( 'post_id' => $this->post->ID ) );
+		$comments = get_comments( array( 'post_id' => $this->faq->post->ID ) );
 
 		wp_list_comments( array(), $comments );
 
-		comment_form( array(), $this->post->ID );
+		comment_form( array(), $this->faq->post->ID );
 	}
 
 	/**
@@ -469,7 +493,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
   	public function get_anchor_permalink() {
   		global $ewd_ufaq_controller;
 
-  		return $ewd_ufaq_controller->settings->get_setting( 'disable-faq-toggle' ) ? get_permalink( $this->post->ID ) : '#';
+  		return $ewd_ufaq_controller->settings->get_setting( 'disable-faq-toggle' ) ? get_permalink( $this->faq->post->ID ) : '#';
   	}
 
   	/**
@@ -490,7 +514,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 	 */
   	public function get_custom_field_value( $custom_field ) {
 
-  		$value = get_post_meta( $this->post->ID, 'Custom_Field_' . $custom_field->id, true );
+  		$value = get_post_meta( $this->faq->post->ID, 'Custom_Field_' . $custom_field->id, true );
 
   		if ( $custom_field->type == 'file' ) {
 
@@ -511,7 +535,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
   	public function get_categories_label() {
   		global $ewd_ufaq_controller;
 
-  		return $ewd_ufaq_controller->settings->get_setting( 'label-categories' ) ? $ewd_ufaq_controller->settings->get_setting( 'label-categories' ) : ( sizeOf( $this->categories ) == 1 ? __( 'Category:', 'ultimate-faqs' ) : __( 'Categories:', 'ultimate-faqs' ) );
+  		return $ewd_ufaq_controller->settings->get_setting( 'label-categories' ) ? $ewd_ufaq_controller->settings->get_setting( 'label-categories' ) : ( sizeOf( $this->faq->categories ) == 1 ? __( 'Category:', 'ultimate-faqs' ) : __( 'Categories:', 'ultimate-faqs' ) );
   	}
 
   	/**
@@ -535,7 +559,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
   	public function get_tags_label() {
   		global $ewd_ufaq_controller;
 
-  		return $ewd_ufaq_controller->settings->get_setting( 'label-tags' ) ? $ewd_ufaq_controller->settings->get_setting( 'label-tags' ) : ( sizeOf( $this->tags ) == 1 ? __( 'Tag:', 'ultimate-faqs' ) : __( 'Tags:', 'ultimate-faqs' ) );
+  		return $ewd_ufaq_controller->settings->get_setting( 'label-tags' ) ? $ewd_ufaq_controller->settings->get_setting( 'label-tags' ) : ( sizeOf( $this->faq->tags ) == 1 ? __( 'Tag:', 'ultimate-faqs' ) : __( 'Tags:', 'ultimate-faqs' ) );
   	}
 
   	/**
@@ -561,7 +585,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 
   		$img_url = ( $ewd_ufaq_controller->settings->get_setting( 'thumbs-up-image' ) and $ewd_ufaq_controller->settings->get_setting( 'thumbs-up-image' ) != 'http://' ) ? $ewd_ufaq_controller->settings->get_setting( 'thumbs-up-image' ) : EWD_UFAQ_PLUGIN_URL . '/assets/img/Thumbs-up-icon.png';
 
-  		return '<img src="' . esc_url( $img_url ) . '" />';
+  		return '<img src="' . esc_url( $img_url ) . '" alt="' . __( "Thumbs Up Icon", "ultimate-faqs" ) . '">';
   	}
 
   	/**
@@ -571,7 +595,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 	 */
   	public function get_up_votes() {
 
-  		return get_post_meta( $this->post->ID, "FAQ_Up_Votes", true ) ? get_post_meta( $this->post->ID, "FAQ_Up_Votes", true ) : 0;
+  		return get_post_meta( $this->faq->post->ID, "FAQ_Up_Votes", true ) ? get_post_meta( $this->faq->post->ID, "FAQ_Up_Votes", true ) : 0;
   	}
 
   	/**
@@ -584,7 +608,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 
   		$img_url = ( $ewd_ufaq_controller->settings->get_setting( 'thumbs-down-image' ) and $ewd_ufaq_controller->settings->get_setting( 'thumbs-down-image' ) != 'http://' ) ? $ewd_ufaq_controller->settings->get_setting( 'thumbs-down-image' ) : EWD_UFAQ_PLUGIN_URL . '/assets/img/Thumbs-down-icon.png';
 
-  		return '<img src="' . esc_url( $img_url ) . '" />';
+  		return '<img src="' . esc_url( $img_url ) . '" alt="' . __( "Thumbs Down Icon", "ultimate-faqs" ) . '">';
   	}
 
   	/**
@@ -594,7 +618,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 	 */
   	public function get_down_votes() {
 
-  		return get_post_meta( $this->post->ID, "FAQ_Down_Votes", true ) ? get_post_meta( $this->post->ID, "FAQ_Down_Votes", true ) : 0;
+  		return get_post_meta( $this->faq->post->ID, "FAQ_Down_Votes", true ) ? get_post_meta( $this->faq->post->ID, "FAQ_Down_Votes", true ) : 0;
   	}
 
 	/**
@@ -606,7 +630,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 
   		$text = __( 'Check out this helpful FAQ', 'ultimate-faqs' ) . ': ';
 
-  		return 'https://twitter.com/intent/tweet?text=' . urlencode( $text ) . urlencode( $this->post->post_title ) . urlencode( ' | ' ) . urlencode( $this->permalink );
+  		return 'https://twitter.com/intent/tweet?text=' . urlencode( $text ) . urlencode( $this->faq->post->post_title ) . urlencode( ' | ' ) . urlencode( $this->permalink );
   	}
 
 	/**
@@ -618,7 +642,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 
   		$text = __( 'Check out this helpful FAQ', 'ultimate-faqs' );
 
-  		return 'http://www.linkedin.com/shareArticle?mini=true&amp;url=' . $this->permalink . "&amp;title=" . urlencode( $text ) . "&amp;summary=" . urlencode( $this->post->post_title );
+  		return 'http://www.linkedin.com/shareArticle?mini=true&amp;url=' . $this->permalink . "&amp;title=" . urlencode( $text ) . "&amp;summary=" . urlencode( $this->faq->post->post_title );
   	}
 
 	/**
@@ -630,7 +654,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 
   		$text = __( 'Check out this helpful FAQ', 'ultimate-faqs' ) . ': ';
 
-  		return 'http://pinterest.com/pin/create/button/?url=' . $this->permalink . "&amp;description=" . urlencode( $text ) . urlencode( $this->post->post_title );
+  		return 'http://pinterest.com/pin/create/button/?url=' . $this->permalink . "&amp;description=" . urlencode( $text ) . urlencode( $this->faq->post->post_title );
   	}
 
 	/**
@@ -642,7 +666,7 @@ class ewdufaqViewFAQ extends ewdufaqView {
 
   		$subject = __( 'Check out this helpful FAQ', 'ultimate-faqs' );
 
-  		return 'mailto:?subject=' . urlencode( $subject ) . "&amp;body=" . urlencode( $this->post->post_title ) . urlencode( ' | ' ) . urlencode( $this->permalink );
+  		return 'mailto:?subject=' . urlencode( $subject ) . "&amp;body=" . urlencode( $this->faq->post->post_title ) . urlencode( ' | ' ) . urlencode( $this->permalink );
   	}
 
 	/**
@@ -693,11 +717,6 @@ class ewdufaqViewFAQ extends ewdufaqView {
 	 */
 	public function set_variables() {
 		global $ewd_ufaq_controller;
-
-		$this->categories = get_the_terms( $this->post->ID, EWD_UFAQ_FAQ_CATEGORY_TAXONOMY );
-		$this->categories = is_array ( $this->categories ) ? $this->categories : array();
-		$this->tags = get_the_terms( $this->post->ID, EWD_UFAQ_FAQ_TAG_TAXONOMY );
-		$this->tags = is_array ( $this->tags ) ? $this->tags : array();
 		
 		$this->no_comments = ! empty( $this->no_comments ) ? $this->no_comments : ! $ewd_ufaq_controller->settings->get_setting( 'comments-on' );
 		$this->display_all_answers = ! empty( $this->display_all_answers ) ? $this->display_all_answers : $ewd_ufaq_controller->settings->get_setting( 'display-all-answers' );
@@ -718,16 +737,15 @@ class ewdufaqViewFAQ extends ewdufaqView {
 		global $ewd_ufaq_controller;
 		
 		// Added in to get another f$*!ing page builder to work correctly
-		$post = get_post( $this->post->ID );
+		$post = get_post( $this->faq->post->ID );
 
 		add_filter( 'siteorigin_panels_filter_content_enabled', array( $this, 'disable_site_origin_page_builder' ) );
 
-		$this->unique_id = $this->post->ID . '-' . ewd_random_string();
-		$this->faq_title = apply_filters( 'the_title', $this->post->post_title, $this->post->ID );
-		$this->faq_answer = apply_filters( 'the_content', html_entity_decode( $this->post->post_content ) );
-		$this->faq_preview = apply_filters( 'the_content', html_entity_decode( $this->post->post_excerpt ) );
-		$this->faq_author = get_post_meta( $this->post->ID, 'EWD_UFAQ_Post_Author', true);
-		$this->date = get_the_date( '', $this->post->ID );
+		$this->unique_id = $this->faq->post->ID . '-' . ewd_random_string();
+		$this->faq_title = apply_filters( 'the_title', $this->faq->post->post_title, $this->faq->post->ID );
+		$this->faq_answer = apply_filters( 'the_content', html_entity_decode( $this->faq->post->post_content ) );
+		$this->faq_preview = apply_filters( 'the_content', html_entity_decode( $this->faq->post->post_excerpt ) );
+		$this->date = get_the_date( '', $this->faq->post->ID );
 		
 		if ( ! empty( $this->search_string ) and $ewd_ufaq_controller->settings->get_setting( 'highlight-search-term' ) ) {
 
@@ -749,19 +767,19 @@ class ewdufaqViewFAQ extends ewdufaqView {
 
 		if ( $ewd_ufaq_controller->settings->get_setting( 'permalink-type' ) == 'individual_page' or ! empty( $this->is_search ) ) {
 
-			$this->permalink =  get_permalink( $this->post->ID );
+			$this->permalink =  get_permalink( $this->faq->post->ID );
 
 			return;
 		}
 
 		if ( $ewd_ufaq_controller->settings->get_setting( 'pretty-permalinks' ) ) {
 
-			$this->permalink =  get_permalink() . 'single-faq/' . $this->post->post_name . '/';
+			$this->permalink =  get_permalink() . 'single-faq/' . $this->faq->post->post_name . '/';
 
 			return;
 		} 
 
-		$this->permalink = add_query_arg( 'Display_FAQ', $this->post->ID, ( ! empty( $this->current_url ) ? $this->current_url : get_permalink() ) );
+		$this->permalink = add_query_arg( 'Display_FAQ', $this->faq->post->ID, ( ! empty( $this->current_url ) ? $this->current_url : get_permalink() ) );
 	}
 
 	/**

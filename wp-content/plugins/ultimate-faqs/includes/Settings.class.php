@@ -134,7 +134,7 @@ class ewdufaqSettings {
 		require_once( EWD_UFAQ_PLUGIN_DIR . '/lib/simple-admin-pages/simple-admin-pages.php' );
 		$sap = sap_initialize_library(
 			$args = array(
-				'version' => '2.6.13',
+				'version' => '2.6.19',
 				'lib_url' => EWD_UFAQ_PLUGIN_URL . '/lib/simple-admin-pages/',
 				'theme'   => 'purple',
 			)
@@ -530,7 +530,6 @@ class ewdufaqSettings {
 				'id'            => 'faq-order-by',
 				'title'         => __( 'FAQ Ordering', 'ultimate-faqs' ),
 				'description'   => __( 'How should individual FAQs be ordered?', 'ultimate-faqs' ), 
-				'blank_option'	=> false,
 				'options'       => array(
 					'date'				=> __( 'Created Date', 'ultimate-faqs' ),
 					'title'				=> __( 'Title', 'ultimate-faqs' ),
