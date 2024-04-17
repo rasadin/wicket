@@ -381,7 +381,7 @@ function custom_user_list_posts_html_shortcode($atts) {
 				<?php if(get_post_meta(get_the_ID(), 'whatsapp_primary', true) != ''){ ?>
 					<div class="group-1">
 						<span class="value-1">WhatsApp <span>(Primary)</span></span>
-						<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></span>
+						<span class="value-2"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></a></span>
 						<span class="copy-btn">Copy Number</span>
 						<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank">Message</a></span>
 					</div>
@@ -390,7 +390,7 @@ function custom_user_list_posts_html_shortcode($atts) {
 				<?php if(get_post_meta(get_the_ID(), 'whatsapp_secondary', true) != ''){ ?>
 					<div class="group-2">
 						<span class="value-1">WhatsApp <span>(Secondary)</span></span>
-						<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></span>
+						<span class="value-2"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?> " target="_blank"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></a></span>
 						<span class="copy-btn">Copy Number</span>
 						<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?>" target="_blank">Message</a></span>
 					</div>
@@ -516,7 +516,7 @@ function custom_user_list_posts_html_shortcode_complain($atts) {
 						   <?php if(get_post_meta(get_the_ID(), 'whatsapp_primary', true) != ''){ ?>
 								<div class="group-1">
 									<span class="value-1">WhatsApp <span>(Primary)</span></span>
-									<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></span>
+									<span class="value-2"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></a></span>
 									<span class="copy-btn">Copy Number</span>
 									<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank">Message</a></span>
 								</div>
@@ -525,7 +525,7 @@ function custom_user_list_posts_html_shortcode_complain($atts) {
 							<?php if(get_post_meta(get_the_ID(), 'whatsapp_secondary', true) != ''){ ?>
 								<div class="group-2">
 									<span class="value-1">WhatsApp <span>(Secondary)</span></span>
-									<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></span>
+									<span class="value-2"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?> " target="_blank"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></a></span>
 									<span class="copy-btn">Copy Number</span>
 									<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?>" target="_blank">Message</a></span>
 								</div>
@@ -646,7 +646,7 @@ function custom_user_list_posts_html_shortcode_new_account($atts) {
 						    <?php if(get_post_meta(get_the_ID(), 'whatsapp_primary', true) != ''){ ?>
 								<div class="group-1">
 									<span class="value-1">WhatsApp <span>(Primary)</span></span>
-									<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></span>
+									<span class="value-2"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></a></span>
 									<span class="copy-btn">Copy Number</span>
 									<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank">Message</a></span>
 								</div>
@@ -655,7 +655,7 @@ function custom_user_list_posts_html_shortcode_new_account($atts) {
 							<?php if(get_post_meta(get_the_ID(), 'whatsapp_secondary', true) != ''){ ?>
 								<div class="group-2">
 									<span class="value-1">WhatsApp <span>(Secondary)</span></span>
-									<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></span>
+									<span class="value-2"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?> " target="_blank"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></a></span>
 									<span class="copy-btn">Copy Number</span>
 									<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?>" target="_blank">Message</a></span>
 								</div>
@@ -684,3 +684,31 @@ function custom_user_list_posts_html_shortcode_new_account($atts) {
     return $output; // Return the generated HTML
 }
 add_shortcode('new_account_list', 'custom_user_list_posts_html_shortcode_new_account');
+
+
+
+
+
+
+
+
+
+
+function custom_post_thumbnail_with_dummy_image( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
+    // Check if the post has a thumbnail
+    if ( ! has_post_thumbnail( $post_id ) ) {
+        // URL of your dummy image
+        $dummy_image_url = home_url('/wp-content/themes/wicket/assets/img/a.png');
+
+        // Generate HTML for the dummy image
+        $dummy_image_html = '<img src="' . esc_url( $dummy_image_url ) . '" alt="Dummy Image" />';
+
+        // Return the dummy image HTML
+        return $dummy_image_html;
+    }
+
+    // If the post has a thumbnail, return the original HTML
+    return $html;
+}
+add_filter( 'post_thumbnail_html', 'custom_post_thumbnail_with_dummy_image', 10, 5 );
+

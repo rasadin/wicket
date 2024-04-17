@@ -70,7 +70,7 @@
 	    <?php if(get_post_meta(get_the_ID(), 'whatsapp_primary', true) != ''){ ?>
 		<div class="group-1">
 			<span class="value-1">WhatsApp <span>(Primary)</span></span>
-			<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></span>
+			<span class="value-2"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank"><?php echo get_post_meta(get_the_ID(), 'whatsapp_primary', true); ?></a></span>
 			<span class="copy-btn">Copy Number</span>
 			<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_primary_link', true); ?> " target="_blank">Message</a></span>
 		</div>
@@ -79,7 +79,7 @@
 		<?php if(get_post_meta(get_the_ID(), 'whatsapp_secondary', true) != ''){ ?>
 		<div class="group-2">
 			<span class="value-1">WhatsApp <span>(Secondary)</span></span>
-			<span class="value-2"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></span>
+			<span class="value-2"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?> " target="_blank"><?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary', true); ?></a></span>
 			<span class="copy-btn">Copy Number</span>
 			<span class="value-4"><a href="<?php echo get_post_meta(get_the_ID(), 'whatsapp_secondary_link', true); ?>" target="_blank">Message</a></span>
 		</div>

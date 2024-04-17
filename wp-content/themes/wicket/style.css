@@ -1110,3 +1110,7 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+span.value-2 > a {
+    color: black;
+}
