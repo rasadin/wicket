@@ -23,10 +23,10 @@
 
 
 // pau
-define( 'DB_NAME', 'rasadin_1111' );
+// define( 'DB_NAME', 'rasadin_1111' );
 
 // rasu
-// define( 'DB_NAME', 'rasadin_7777' );
+define( 'DB_NAME', 'rasadin_7777' );
 
 
 /** Database username */
